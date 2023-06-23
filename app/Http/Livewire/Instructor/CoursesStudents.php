@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Http\Livewire\Instructor;
+
+use Livewire\Component;
+use App\Models\Course;
+use Livewire\WithPagination;
+use App\Jobs\SendLoginReminderEmailJob;
+
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
+class CoursesStudents extends Component
+{
+    use WithPagination;
+    use AuthorizesRequests;
+
+    public $course, $search;
+
+    public function mount( Course $course ){
+        $this->course = $course;
+
+        // Policy to check if an instructor is modifying a course created by another instructor
+        $this->authorize('dictated', $course);
+    }
+
+    // Livewire live cicle
+    public function updatingSearch(){
+        $this->resetPage();
+    }
+
+    public function render()
+    {
+        $students = $this->course->students()
+                    ->where('name', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('lastname', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('document_id', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('email', 'LIKE', '%' . $this->search . '%')
+                    ->paginate(10);
+
+        return view('livewire.instructor.courses-students', compact('students'))->layout('layouts.instructor', ['course' => $this->course]);
+    }
+
+    public function reminder( $email ){
+        SendLoginReminderEmailJob::dispatch( $email, 'Recordatorio de inicio de sesión' );
+    }
+}

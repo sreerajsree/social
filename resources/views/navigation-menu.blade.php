@@ -1,12 +1,12 @@
 @php
     /**
      * Navigation links
-     */    
+     */
     $nav_links = [
         [
             'name' => 'Home',
             'route' => route('home', app()->getLocale()), // routes/web.php dashboard route
-            'active' => request()->routeIs('home') // bool: verify is active route dashboard
+            'active' => request()->routeIs('home'), // bool: verify is active route dashboard
         ],
         [
             'name' => 'Courses',
@@ -20,9 +20,8 @@
             'childs' => [
                 [
                     'name' => 'Virtual',
-
-                ]
-            ]
+                ],
+            ],
         ],
         // [
         //     'name' => 'Categories',
@@ -30,10 +29,10 @@
         //     'active' => request()->routeIs('courses.*'), // bool: verify is active route dashboard
         // ],
     ];
-
+    
 @endphp
 
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
+<nav x-data="{ open: false }" class="bg-white">
     <!-- Primary Navigation Menu -->
     <div class="container">
         <div class="flex justify-between h-24">
@@ -41,12 +40,16 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('home', app()->getLocale()) }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="https://www.social-care.tv/templates/default/images/sctv-logo.svg" alt="">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
+
+            </div>
+
+            <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <div class="hidden sm:-my-px sm:ml-10 sm:flex items-center middle">
 
                     {{-- @foreach ($nav_links as $nav_link)
                         <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']" class="items-center px-1 pt-1 text-md font-medium leading-5 hover:text-gray-700 block py-2 text-gray-500">
@@ -55,16 +58,39 @@
 
                         </x-jet-nav-link>
                     @endforeach --}}
+                    @livewire('search')
 
-                    <x-jet-nav-link href="{{ route('home', [app()->getLocale()] ) }}" :active="request()->routeIs('home')" class="hidden md:inline-block">
-                        <i class="fas fa-home mr-2"></i>{{ __('Home') }}
+                    {{-- <x-jet-nav-link href="{{ route('courses.index', [app()->getLocale()]) }}" :active="request()->routeIs('home')"
+                        class="hidden md:inline-block">
+                        {{ __('Courses') }}
+                    </x-jet-nav-link> --}}
+
+                    <x-jet-nav-link href="" :active="request()->routeIs('home')"
+                        class="hidden md:inline-block">
+                        {{ __('Courses') }}
+                    </x-jet-nav-link> 
+
+                    <x-jet-nav-link href="" :active="request()->routeIs('home')"
+                        class="hidden md:inline-block">
+                        {{ __('Pricing') }}
+                    </x-jet-nav-link> 
+
+                    <x-jet-nav-link href="" :active="request()->routeIs('home')"
+                        class="hidden md:inline-block">
+                        {{ __('FAQs') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('courses.index', [app()->getLocale()] ) }}" :active="request()->routeIs('home')" class="hidden md:inline-block">
-                        <i class="fas fa-laptop mr-2"></i>{{ __('Courses') }}
+                    <x-jet-nav-link href="" :active="request()->routeIs('home')"
+                        class="hidden md:inline-block">
+                        {{ __('About Us') }}
                     </x-jet-nav-link>
 
-                    <x-jet-dropdown align="left" width="60" :active="request()->routeIs('courses.modality.*')">
+                    <x-jet-nav-link href="" :active="request()->routeIs('home')"
+                        class="hidden md:inline-block">
+                        {{ __('News') }}
+                    </x-jet-nav-link>
+
+                    {{-- <x-jet-dropdown align="left" width="60" :active="request()->routeIs('courses.modality.*')">
                         <x-slot name="trigger">
                             <a class="nav-link text-gray-500" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-laptop-house  mr-2"></i>{{ __('Modalities') }}
@@ -72,8 +98,8 @@
                         </x-slot>
                         <x-slot name="content">
                             <div class="w-80">
-                                @if(count($modalities))
-                                    @foreach($modalities as $modality)
+                                @if (count($modalities))
+                                    @foreach ($modalities as $modality)
                                     <x-jet-dropdown-link href="{{ route('courses.modality', [app()->getLocale(), $modality] ) }}" :active="request()->routeIs('courses.modality.*')">
                                         {{ __($modality->name) }}
                                     </x-jet-dropdown-link>
@@ -81,9 +107,9 @@
                                 @endif
                             </div>
                         </x-slot>
-                    </x-jet-dropdown>
+                    </x-jet-dropdown> --}}
 
-                    <x-jet-dropdown align="left" width="60" :active="request()->routeIs('courses.category.*')">
+                    {{-- <x-jet-dropdown align="left" width="60" :active="request()->routeIs('courses.category.*')">
                         <x-slot name="trigger">
                             <a class="nav-link text-gray-500" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-tags mr-2"></i>{{ __('Categories') }}
@@ -91,8 +117,8 @@
                         </x-slot>
                         <x-slot name="content">
                             <div class="w-80">
-                                @if(count($categories))
-                                    @foreach($categories as $category)
+                                @if (count($categories))
+                                    @foreach ($categories as $category)
                                     <x-jet-dropdown-link href="{{ route('courses.category', [app()->getLocale(), $category] ) }}" :active="request()->routeIs('courses.category.*')">
                                         {{ __($category->name) }}
                                     </x-jet-dropdown-link>
@@ -100,7 +126,7 @@
                                 @endif
                             </div>
                         </x-slot>
-                    </x-jet-dropdown>
+                    </x-jet-dropdown> --}}
 
                     {{-- TODO: Link Dashboard --}}
                     {{-- <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -115,9 +141,6 @@
                         </x-jet-nav-link>
                     @endforeach --}}
                 </div>
-            </div>
-
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
 
                 <!-- Right Side Of Navbar -->
                 {{-- <ul class="navbar-nav ml-auto">
@@ -130,7 +153,7 @@
                     @endforeach
                 </ul> --}}
 
-                @if(count(config('app.languages')) > 1)
+                {{-- @if (count(config('app.languages')) > 1)
                     <x-jet-dropdown width="60 text-gray-500">
                                 <x-slot name="trigger">
                                     <a class="nav-link text-gray-500 hidden md:inline-block" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -139,17 +162,15 @@
                                 </x-slot>
                                 <x-slot name="content">
                                     <div class="w-40 hidden md:inline-block">
-                                        @foreach(config('app.languages') as $langLocale => $langName)
+                                        @foreach (config('app.languages') as $langLocale => $langName)
                                         <x-jet-dropdown-link href="{{ route('set.locale', $langLocale) }}">
                                             {{ $langName }}
                                         </x-jet-dropdown-link>
-                                            {{-- <a class="dropdown-item px-4 py-24" href="{{ route('set.locale', $langLocale) }}">{{ $langName }}</a><br> --}}
-                                            {{-- <a class="dropdown-item" href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }} ({{ $langName }})</a> --}}
                                         @endforeach
                                     </div>
                                 </x-slot>
                     </x-jet-dropdown>
-                @endif
+                @endif --}}
 
                 {{-- @auth
                     <!-- Teams Dropdown -->
@@ -209,17 +230,23 @@
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                        <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                    <button
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
+                                        <img class="h-8 w-8 rounded-full object-cover"
+                                            src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                     </button>
                                 @else
                                     <span class="inline-flex rounded-md">
-                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                            {{ Auth::user()->name }} 
+                                        <button type="button"
+                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                            {{ Auth::user()->name }}
                                             {{-- TODO: Fix show user role {{ Auth::user()->roles()->name }} --}}
 
-                                            <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd" />
                                             </svg>
                                         </button>
                                     </span>
@@ -232,7 +259,7 @@
                                     {{ __('Account') }}
                                 </div>
 
-                                <x-jet-dropdown-link href="{{ route('profile.show', app()->getLocale() ) }}">
+                                <x-jet-dropdown-link href="{{ route('profile.show', app()->getLocale()) }}">
                                     {{ __('Profile') }}
                                 </x-jet-dropdown-link>
 
@@ -243,28 +270,28 @@
                                     {{ __('Manage') }}
                                 </div>
 
-                                @can ('view-dashboard')
-                                    <x-jet-dropdown-link href="{{ route('admin.cpanel', app()->getLocale() ) }}">
+                                @can('view-dashboard')
+                                    <x-jet-dropdown-link href="{{ route('admin.cpanel', app()->getLocale()) }}">
                                         {{ __('Control Panel') }}
                                     </x-jet-dropdown-link>
                                 @endcan
 
                                 <!-- TODO: Create permission LMS Crear contenido -->
-                                @can ('create-post')
-                                    <x-jet-dropdown-link href="{{ route('creator.courses.index', app()->getLocale() ) }}">
+                                @can('create-post')
+                                    <x-jet-dropdown-link href="{{ route('creator.courses.index', app()->getLocale()) }}">
                                         {{ __('Courses') }}
                                     </x-jet-dropdown-link>
                                 @endcan
 
                                 <!-- TODO: Create permission LMS Crear contenido -->
-                                {{-- @can ('view-dashboard')
+                                {{-- @can('view-dashboard')
                                     <x-jet-dropdown-link href="{{ route('creator.dashboard', app()->getLocale()) }}">
                                         {{ __('Settings') }}
                                     </x-jet-dropdown-link>
                                 @endcan --}}
 
-                                @can ('create-course')
-                                    <x-jet-dropdown-link href="{{ route('instructor.courses.index', app()->getLocale() ) }}">
+                                @can('create-course')
+                                    <x-jet-dropdown-link href="{{ route('instructor.courses.index', app()->getLocale()) }}">
                                         {{ __('Courses') }}
                                     </x-jet-dropdown-link>
                                 @endcan
@@ -278,11 +305,11 @@
                                 <div class="border-t border-gray-100"></div>
 
                                 <!-- Authentication -->
-                                <form method="POST" action="{{ route('logout', app()->getLocale() ) }}">
+                                <form method="POST" action="{{ route('logout', app()->getLocale()) }}">
                                     @csrf
 
-                                    <x-jet-dropdown-link href="{{ route('logout', app()->getLocale() ) }}"
-                                            onclick="event.preventDefault();
+                                    <x-jet-dropdown-link href="{{ route('logout', app()->getLocale()) }}"
+                                        onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                         {{ __('Logout') }}
                                     </x-jet-dropdown-link>
@@ -291,11 +318,11 @@
                         </x-jet-dropdown>
                     @else
                         <!-- Login button -->
-                        <a href="{{ route('login', app()->getLocale() ) }}" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-gray-400 hover:border-gray-600 rounded-md shadow-sm text-base font-medium text-gray-400 hover:text-gray-600 bg-white-100 hover:bg-gray-100">{{ __('Sign In') }}</a>
+                        <a class="hover:opacity-75 btn-primary" href="">{{ __('Log in') }}</a>
 
                         <!-- Register button -->
                         @if (Route::has('register'))
-                            <a href="{{ route('register', app()->getLocale() ) }}" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700">{{ __('Register') }}</a>
+                            <a class="hover:opacity-75 btn-secondary" href="">{{ __('Open new account') }}</a>
                         @endif
                     @endauth
                 </div>
@@ -303,10 +330,14 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <button @click="open = ! open"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                        <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -314,7 +345,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             {{-- @foreach ($nav_links as $nav_link)
                 <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
@@ -322,59 +353,72 @@
                 </x-jet-responsive-nav-link>
             @endforeach --}}
 
-            <x-jet-responsive-nav-link href="{{ route('home', [app()->getLocale()] ) }}" :active="request()->routeIs('home')" class="hidden md:inline-block">
+            {{-- <x-jet-responsive-nav-link href="{{ route('home', [app()->getLocale()]) }}" :active="request()->routeIs('home')"
+                class="hidden md:inline-block">
+                <i class="fas fa-home mr-2"></i>{{ __('Home') }}
+            </x-jet-responsive-nav-link> --}}
+
+            <x-jet-responsive-nav-link href="" :active="request()->routeIs('home')"
+                class="hidden md:inline-block">
                 <i class="fas fa-home mr-2"></i>{{ __('Home') }}
             </x-jet-responsive-nav-link>
 
-            <x-jet-responsive-nav-link href="{{ route('courses.index', [app()->getLocale()] ) }}" :active="request()->routeIs('home')" class="hidden md:inline-block">
+            <x-jet-responsive-nav-link href="" :active="request()->routeIs('home')"
+                class="hidden md:inline-block">
                 <i class="fas fa-laptop mr-2"></i>{{ __('Courses') }}
             </x-jet-responsive-nav-link>
 
         </div>
 
-        <div class="pt-2 pb-3 space-y-1">
+        {{-- <div class="pt-2 pb-3 space-y-1">
             <x-jet-dropdown width="60" align="left">
                 <x-slot name="trigger">
-                    <a class="nav-link text-gray-500 ml-4 flex justify-left items-center" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link text-gray-500 ml-4 flex justify-left items-center" data-toggle="dropdown"
+                        href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         {{ __('Modalities') }}
                         <i class="fas fa-caret-down ml-4"></i>
                     </a>
                 </x-slot>
                 <x-slot name="content">
                     <div class="w-64 bg-gray-100">
-                        @if(count($modalities))
-                            @foreach($modalities as $modality)
-                            <x-jet-dropdown-link href="{{ route('courses.modality', [app()->getLocale(), $modality] ) }}" :active="request()->routeIs('courses.modality.*')">
-                                {{ __($modality->name) }}
-                            </x-jet-dropdown-link>
+                        @if (count($modalities))
+                            @foreach ($modalities as $modality)
+                                <x-jet-dropdown-link
+                                    href="{{ route('courses.modality', [app()->getLocale(), $modality]) }}"
+                                    :active="request()->routeIs('courses.modality.*')">
+                                    {{ __($modality->name) }}
+                                </x-jet-dropdown-link>
                             @endforeach
                         @endif
                     </div>
                 </x-slot>
             </x-jet-dropdown>
-        </div>
+        </div> --}}
 
-        <div class="pt-2 pb-3 space-y-1">
+        {{-- <div class="pt-2 pb-3 space-y-1">
             <x-jet-dropdown width="60" align="left">
                 <x-slot name="trigger">
-                    <a class="nav-link text-gray-500 ml-4 flex justify-left items-center" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link text-gray-500 ml-4 flex justify-left items-center" data-toggle="dropdown"
+                        href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         {{ __('Categories') }}
                         <i class="fas fa-caret-down ml-4"></i>
                     </a>
                 </x-slot>
                 <x-slot name="content">
                     <div class="w-64 bg-gray-100">
-                        @if(count($categories))
-                            @foreach($categories as $category)
-                            <x-jet-dropdown-link href="{{ route('courses.category', [app()->getLocale(), $category] ) }}" :active="request()->routeIs('courses.category.*')">
-                                {{ __($category->name) }}
-                            </x-jet-dropdown-link>
+                        @if (count($categories))
+                            @foreach ($categories as $category)
+                                <x-jet-dropdown-link
+                                    href="{{ route('courses.category', [app()->getLocale(), $category]) }}"
+                                    :active="request()->routeIs('courses.category.*')">
+                                    {{ __($category->name) }}
+                                </x-jet-dropdown-link>
                             @endforeach
                         @endif
                     </div>
                 </x-slot>
             </x-jet-dropdown>
-        </div>
+        </div> --}}
 
 
         <!-- Responsive Settings Options -->
@@ -383,7 +427,8 @@
                 <div class="flex items-center px-4 pb-4">
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                         <div class="flex-shrink-0 mr-3">
-                            <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                            <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
+                                alt="{{ Auth::user()->name }}" />
                         </div>
                     @endif
 
@@ -400,9 +445,9 @@
                     <!-- Account -->
                     <div class="block px-4 py-2 text-md font-bold text-gray-900">
                         {{ __('Account') }}
-                    </div> 
+                    </div>
 
-                    <x-jet-responsive-nav-link href="{{ route('profile.show', app()->getLocale() ) }}" :active="request()->routeIs('profile.show')">
+                    <x-jet-responsive-nav-link href="{{ route('profile.show', app()->getLocale()) }}" :active="request()->routeIs('profile.show')">
                         {{ __('Profile') }}
                     </x-jet-responsive-nav-link>
 
@@ -414,20 +459,22 @@
                     </div>
 
                     @can('view-dashboard')
-                        <x-jet-responsive-nav-link href="{{ route('admin.cpanel', app()->getLocale() ) }}" :active="request()->routeIs('admin.cpanel', app()->getLocale() )">
+                        <x-jet-responsive-nav-link href="{{ route('admin.cpanel', app()->getLocale()) }}" :active="request()->routeIs('admin.cpanel', app()->getLocale())">
                             {{ __('Control Panel') }}
                         </x-jet-responsive-nav-link>
                     @endcan
 
                     <!-- TODO: Create permission LMS Crear contenido -->
                     @can('create-post')
-                        <x-jet-responsive-nav-link href="{{ route('creator.courses.index', app()->getLocale()) }}" :active="request()->routeIs('creator.courses.index', app()->getLocale())">
+                        <x-jet-responsive-nav-link href="{{ route('creator.courses.index', app()->getLocale()) }}"
+                            :active="request()->routeIs('creator.courses.index', app()->getLocale())">
                             {{ __('Courses') }}
                         </x-jet-responsive-nav-link>
                     @endcan
 
                     @can('create-course')
-                        <x-jet-responsive-nav-link href="{{ route('instructor.courses.index', app()->getLocale() ) }}" :active="request()->routeIs('instructor.courses.index', app()->getLocale())">
+                        <x-jet-responsive-nav-link href="{{ route('instructor.courses.index', app()->getLocale()) }}"
+                            :active="request()->routeIs('instructor.courses.index', app()->getLocale())">
                             {{ __('Courses') }}
                         </x-jet-responsive-nav-link>
                     @endcan
@@ -439,11 +486,11 @@
                     @endif
 
                     <!-- Authentication -->
-                    <form method="POST" action="{{ route('logout', app()->getLocale() ) }}">
+                    <form method="POST" action="{{ route('logout', app()->getLocale()) }}">
                         @csrf
 
-                        <x-jet-responsive-nav-link href="{{ route('logout', app()->getLocale() ) }}"
-                                    onclick="event.preventDefault();
+                        <x-jet-responsive-nav-link href="{{ route('logout', app()->getLocale()) }}"
+                            onclick="event.preventDefault();
                                         this.closest('form').submit();">
                             {{ __('Cerrar sesión') }}
                         </x-jet-responsive-nav-link>
@@ -483,12 +530,12 @@
             </div>
         @else
             <div class="py-1 border-t border-gray-200">
-                <x-jet-responsive-nav-link href="{{ route('login', app()->getLocale() ) }}" :active="request()->routeIs('login')">
-                    {{ __('Login') }}
+                <x-jet-responsive-nav-link href="" :active="request()->routeIs('login')">
+                    {{ __('Log in') }}
                 </x-jet-responsive-nav-link>
 
-                <x-jet-responsive-nav-link href="{{ route('register', app()->getLocale() ) }}" :active="request()->routeIs('register')">
-                    {{ __('Register') }}
+                <x-jet-responsive-nav-link href="" :active="request()->routeIs('register')">
+                    {{ __('Open new account') }}
                 </x-jet-responsive-nav-link>
             </div>
         @endauth

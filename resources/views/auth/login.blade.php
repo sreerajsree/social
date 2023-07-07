@@ -21,7 +21,7 @@
             </div> --}}
 
             <div>
-                <x-jet-label for="identity" value="{{ __('Document ID or Email') }}" />
+                <x-jet-label for="identity" value="{{ __('Email') }}" />
                 <x-jet-input class="block mt-1 w-full" type="text" name="identity" :value="old('email')" required autofocus />
             </div>
 

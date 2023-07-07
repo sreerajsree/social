@@ -5,13 +5,13 @@
     type="search" name="search" placeholder="{{ __('What do you want to learn?') }}"> --}}
 
     <div x-data="{isTyped: false}" class="flex items-center">
-    <input class="w-full border-2 border-gray-300 bg-white h-14 px-5 pr-16 rounded-lg text-md focus:outline-none"
+    <input class="w-full h-14 px-5 pr-16 border-none text-md focus:outline-none" style="background: #f1f4fa"
                         type="search"
                         name="search"
                         id="search"
                         x-ref="searchField"
                         x-on:input.debounce.400ms="isTyped = ($event.target.value != '')"
-                        placeholder="{{ __('What do you want to learn?') }}"
+                        placeholder="{{ __('Find a course') }}"
                         autocomplete="off"
                         wire:model="search"
                         x-on:keydown.window.prevent.slash="$refs.searchField.focus()"
@@ -27,7 +27,7 @@
         {{ __('Search') }}
     </button> --}}
 
-    @if ( $search )
+    {{-- @if ( $search )
         <ul class="absolute z-50 left-0 w-full bg-white mt-1 rounded-lg overflow-hidden shadow-lg border-gray-300">
             @forelse( $this->results as $result )
                 <li class="leading-10 px-5 text-md cursor-pointer hover:bg-gray-200">
@@ -41,5 +41,5 @@
                 </li>
             @endforelse
         </ul>
-    @endif
+    @endif --}}
 </form>

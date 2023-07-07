@@ -21,11 +21,13 @@
         <!-- Icons -->
         <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
-        <title>{{ str_replace('i', 'í', config('app.name', 'Capacítate')) }}</title>
+        <title>{{ str_replace('i', 'í', config('app.name', 'Care Training')) }}</title>
         <!-- <title><?= config('app.name') ?></title> -->
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -53,10 +55,10 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-white">
         <x-jet-banner />
 
-        <div class="flex flex-col min-h-screen justify-between bg-gray-100">
+        <div class="flex flex-col min-h-screen justify-between">
 
             <!-- menu -->
             @livewire('navigation-menu')
@@ -78,8 +80,7 @@
             </main>
 
             <!-- Page Footer -->
-            <footer class="main-footer bg-gray-800">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <footer class="main-foote">
                     @include('partials.footer.footer')
                 </div>
                 <!-- Footer Copyright -->

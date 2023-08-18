@@ -120,10 +120,12 @@ Route::group([
      */
     Route::get('courses/{course}/show', [CourseController::class, 'show'])->name('courses.show');
 
+    Route::get('admin/courses/revision/app/{id}', [CourseController::class, 'app'])->name('courses.app');
+
     // /**
     //  * Route to aprove courses to publish
     //  */
-    // Route::post('courses/{course}/approved', [CourseController::class, 'approved'])->name('courses.approved');
+    Route::post('courses/{course}/approved', [CourseController::class, 'approved'])->name('courses.approved');
 
     /**
      * Route to aprove courses to publish

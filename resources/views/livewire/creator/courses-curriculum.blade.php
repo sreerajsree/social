@@ -14,9 +14,9 @@
 
                 @if($section->id == $item->id)
                     <form wire:submit.prevent="update">
-                        <label class="font-bold text-md pb-2">Título del Módulo</label>
-                        <input wire:model="section.name" class="form-input w-full {{($errors->has('section.name') ? ' border-red-600' : '')}}" type="text" placeholder="Ingrese el título del módulo">
-                        <p class="text-gray-500 text-sm pt-2">Haz click en el cuadro de texto y presiona Enter para guardar o dejar de editar</p>
+                        <label class="font-bold text-md pb-2">Module Title</label>
+                        <input wire:model="section.name" class="form-input w-full {{($errors->has('section.name') ? ' border-red-600' : '')}}" type="text" placeholder="Enter the module title">
+                        <p class="text-gray-500 text-sm pt-2">Click on the text box and press Enter to save or stop editing</p>
                         @error('section.name')
                             <span class="invalid-feedback">
                                 <strong class="text-xs text-red-700">{{ $message }}</strong>
@@ -48,14 +48,14 @@
     <div x-data="{ open: false }">
         <a x-show="!open" x-on:click="open = true" class="flex items-center cursor-pointer mb-2 justify-end">
             <i class="far fa-plus-square text-2xl text-blue-600 mr-2"></i>
-            <span class="text-gray-500 font-bold">Añadir módulo</span>
+            <span class="text-gray-500 font-bold">Add Module</span>
         </a>
 
         <article class="card" x-show="open">
             <div class="card-body bg-gray-100">
-                <h2 class="text-xl font-bold mb-4">Añadir nuevo módulo</h2>
+                <h2 class="text-xl font-bold mb-4">Add New Module</h2>
                 <div class="mb-4">
-                    <input wire:model="name" class="form-input w-full rounded {{($errors->has('name') ? ' border-red-600' : '')}}" type="text" placeholder="Ingrese el título del módulo">
+                    <input wire:model="name" class="form-input w-full rounded {{($errors->has('name') ? ' border-red-600' : '')}}" type="text" placeholder="Enter the module title">
                     @error('name')
                         <span class="invalid-feedback">
                             <strong class="text-xs text-red-700">{{ $message }}</strong>
@@ -63,8 +63,8 @@
                     @enderror
                 </div>
                 <div class="flex justify-end">
-                    <button class="btn bg-white text-red-500 hover:bg-red-500 hover:text-white border border-red-500" x-on:click="open = false">Cancelar</button>
-                    <button class="btn btn-primary ml-2" wire:click="store">Añadir</button>
+                    <button class="btn bg-white text-red-500 hover:bg-red-500 hover:text-white border border-red-500" x-on:click="open = false">Cancel</button>
+                    <button class="btn btn-primary ml-2" wire:click="store">Add</button>
                 </div>
             </div>
         </article>

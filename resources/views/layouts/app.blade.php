@@ -55,7 +55,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
-    <body class="font-sans antialiased bg-white">
+    <body class="antialiased bg-white">
         <x-jet-banner />
 
         <div class="flex flex-col min-h-screen justify-between">

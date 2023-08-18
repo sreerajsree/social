@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <a href="{{ route('admin.slides.create' ) }}" class="btn btn-primary float-right"><i class="fas fa-plus mr-1"></i>Nuevo slide</a>
-    <h1 class="text-primary"><i class="far fa-edit mr-1"></i>Editar slide</h1>
+    <a href="{{ route('admin.slides.create' ) }}" class="btn btn-primary float-right"><i class="fas fa-plus mr-1"></i>New Slide</a>
+    <h1 class="text-primary"><i class="far fa-edit mr-1"></i>Edit Slide</h1>
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
 
             @include('admin.slides.partials.form')
 
-                {!! Form::submit('Actualizar slide', ['class' => 'btn btn-primary float-right']) !!}
+                {!! Form::submit('update slide', ['class' => 'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
     </div>

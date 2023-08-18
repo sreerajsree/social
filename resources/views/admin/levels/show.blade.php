@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1>Detalles del nivel</h1>
+    <h1>Level details</h1>
 @stop
 
 @section('content')
-    <p>Bienvenido al Panel de Administración de nuestro Sistema de Gestión de Aprendizaje.</p>
+    <p>Welcome to the Administration Panel of care.training</p>
 @stop
 
 @section('css')

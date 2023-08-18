@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Crear sociedad</h1>
+    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Create Agreement</h1>
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                 @include('admin.partners.partials.form')
 
 
-                {!! Form::submit('Crear sociedad', ['class' => 'btn btn-primary float-right']) !!}
+                {!! Form::submit('Create Society', ['class' => 'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
     </div>

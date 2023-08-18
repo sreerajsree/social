@@ -112,7 +112,7 @@ class RoleController extends Controller
         // sync() delete all permissions and regenerate again
         $role->permissions()->sync($request->permissions);
 
-        return redirect()->route('admin.roles.edit', $role)->with('rol_updated', 'Se han guardado los cambios correctamente');
+        return redirect()->route('admin.roles.edit', $role)->with('rol_updated', 'Changes have been saved successfully');
     }
 
     /**

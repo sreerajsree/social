@@ -13,4 +13,8 @@ class PageController extends Controller
     public function glosary(){
         return view('pages.glosary');
     }
+
+    public function whyChooseUs(){
+        return view('pages.why-choose-us');
+    }
 }

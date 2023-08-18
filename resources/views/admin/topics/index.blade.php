@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('plugins.Sweetalert2', true)
 
 @section('content_header')
-    <h1 class="text-dark">Subcategorías o Temas</h1>
+    <h1 class="text-dark">Subcategories</h1>
 @stop
 
 @section('content')
@@ -17,8 +17,9 @@
     <div class="card">
 
         <div class="card-header">
-            <a href="{{ route('admin.topics.create' ) }}" class="btn btn-primary float-left" data-toggle="tooltip" data-placement="bottom" title="Añade una nueva subcategoría">
-            <i class="fas fa-plus mr-1"></i>Añadir subcategoría</a>
+            <a href="{{ route('admin.topics.create') }}" class="btn btn-primary float-left" data-toggle="tooltip"
+                data-placement="bottom" title="Add a new subcategory">
+                <i class="fas fa-plus mr-1"></i>Add Subcategory</a>
         </div>
 
         <div class="card-body">
@@ -26,31 +27,37 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Icono</th>
-                        <th>Nombre</th>
-                        <th class="text-center">Categoría padre</th>
+                        <th>Icon</th>
+                        <th>Name</th>
+                        <th class="text-center">Parent Category</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach( $topics as $topic )
+                    @foreach ($topics as $topic)
                         <tr>
                             <td width="10px">{{ $topic->id }}</td>
-                            <td width="10px" class="text-center" data-toggle="tooltip" data-placement="right" title="{{$topic->icon}}">
-                                <i class="{{ ($topic->icon != '' ? $topic->icon : 'fas fa-ban text-red') }}"></i>
+                            <td width="10px" class="text-center" data-toggle="tooltip" data-placement="right"
+                                title="{{ $topic->icon }}">
+                                <i class="{{ $topic->icon != '' ? $topic->icon : 'fas fa-ban text-red' }}"></i>
                             </td>
                             <td>{{ $topic->name }}</td>
                             <td class="text-center">{{ $topic->category->name }}</td>
                             <!-- button -->
                             <td width="12%">
-                                <a href="{{ route('admin.topics.edit', $topic ) }}" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="left" title="Editar {{$topic->name}}"><i class="far fa-edit mr-1"></i>Editar</a>
+                                <a href="{{ route('admin.topics.edit', $topic) }}" class="btn btn-outline-secondary"
+                                    data-toggle="tooltip" data-placement="left" title="Edit {{ $topic->name }}"><i
+                                        class="far fa-edit mr-1"></i>Edit</a>
                             </td>
                             <!-- button -->
                             <td width="14%">
-                                <form action="{{ route( 'admin.topics.destroy', $topic ) }}" method="POST" class="delete-topic">
+                                <form action="{{ route('admin.topics.destroy', $topic) }}" method="POST"
+                                    class="delete-topic">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-outline-danger" type="submit" data-toggle="tooltip" data-placement="left" title="Eliminar {{$topic->name}}"><i class="far fa-trash-alt mr-1"></i>Eliminar</button>
+                                    <button class="btn btn-outline-danger" type="submit" data-toggle="tooltip"
+                                        data-placement="left" title="Delete {{ $topic->name }}"><i
+                                            class="far fa-trash-alt mr-1"></i>Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -59,7 +66,8 @@
             </table>
         </div>
         <div class="card-footer text-sm text-muted">
-            Las <strong>subcategorías o temas</strong> nos permiten asociar un curso a una subcategoría o tema, y esta a su vez se asocia a una categoría específica, para una mejor organización.
+            The <strong>subcategories</strong> allow us to associate a course to a subcategory or topic, and this to its
+            time is associated with a specific category, for better organization.
         </div>
     </div>
 @stop
@@ -72,34 +80,33 @@
     @if (session('delete') == 'success')
         <script>
             Swal.fire(
-                '¡Eliminada!',
-                'Se eliminó la subcategoría solicitada.',
+                'Deleted!',
+                'Removed requested subcategory.',
                 'success'
-                );
+            );
         </script>
     @endif
 
     <script>
-
-        $('.delete-topic').submit(function(e){
+        $('.delete-topic').submit(function(e) {
             e.preventDefault();
 
             Swal.fire({
-            title: '¿Seguro que quieres eliminar esta subcategoría?',
-            text: "La operación no podrá ser revertida y los cursos que hayan sido asignados a esta subcategoría serán mostrados 'Sin subcategoría'!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: '¡Si, eliminar!',
-            cancelButtonText: 'Cancelar'
+                title: 'Are you sure you want to delete this subcategory?',
+                text: "The operation cannot be reversed and the courses that have been assigned to this subcategory will be displayed 'No subcategory'!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete!',
+                cancelButtonText: 'Cancel'
             }).then((result) => {
-            if (result.value) {
+                if (result.value) {
 
-                // Submit the form
-                this.submit();
+                    // Submit the form
+                    this.submit();
 
-            }
+                }
             })
         });
     </script>

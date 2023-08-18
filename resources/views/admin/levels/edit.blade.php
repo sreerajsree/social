@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-primary"><i class="far fa-edit mr-1"></i>Editar nivel</h1>
+    <h1 class="text-primary"><i class="far fa-edit mr-1"></i>Edit Level</h1>
 @stop
 
 @section('content')
@@ -17,14 +17,14 @@
             {!! Form::model($level, ['route' => ['admin.levels.update', $level ], 'method' => 'put' ]) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del nivel']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the name of the level']) !!}
                 </div>
 
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
 
-                {!! Form::submit('Actualizar nivel', ['class' => 'btn btn-primary float-right']) !!}
+                {!! Form::submit('Refresh Level', ['class' => 'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
     </div>

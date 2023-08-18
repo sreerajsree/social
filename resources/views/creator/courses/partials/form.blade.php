@@ -188,7 +188,7 @@
         @endisset
     </figure>
     <div class="text-blue-500 font-bold mt-1" wire:loading wire:target="picture">
-        Cargando...
+        Changing...
     </div>
     <div>
         <p class="mb-2">

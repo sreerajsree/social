@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('plugins.Sweetalert2', true)
 
 @section('content_header')
-    <h1 class="text-dark">Etiquetas</h1>
+    <h1 class="text-dark">Tags</h1>
 @stop
 
 @section('content')
@@ -14,11 +14,12 @@
         <div class="alert alert-success">{{ session('info') }}</div>
     @endif --}}
 
-    <div class="card">        
+    <div class="card">
 
         <div class="card-header">
-            <a href="{{ route('admin.tags.create' ) }}" class="btn btn-primary float-left" data-toggle="tooltip" data-placement="bottom" title="Añade una nueva etiqueta">
-            <i class="fas fa-plus mr-1"></i>Añadir etiqueta</a>
+            <a href="{{ route('admin.tags.create') }}" class="btn btn-primary float-left" data-toggle="tooltip"
+                data-placement="bottom" title="Add a new tag">
+                <i class="fas fa-plus mr-1"></i>Add Label</a>
         </div>
 
         <div class="card-body">
@@ -26,29 +27,34 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Icono</th>
-                        <th>Nombre</th>
-                        <th class="text-center">Subcategoría padre</th>
+                        <th>Icon</th>
+                        <th>Name</th>
+                        <th class="text-center">Parent Subcategory</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach( $tags as $tag )
+                    @foreach ($tags as $tag)
                         <tr>
                             <td width="10px">{{ $tag->id }}</td>
-                            <td width="10px" class="text-center" data-toggle="tooltip" data-placement="right" title="{{$tag->icon}}">
-                                <i class="{{ ($tag->icon != '' ? $tag->icon : 'fas fa-ban text-red') }}"></i>
+                            <td width="10px" class="text-center" data-toggle="tooltip" data-placement="right"
+                                title="{{ $tag->icon }}">
+                                <i class="{{ $tag->icon != '' ? $tag->icon : 'fas fa-ban text-red' }}"></i>
                             </td>
                             <td>{{ $tag->name }}</td>
                             <td class="text-center">{{ $tag->topic->name }}</td>
                             <td width="12%">
-                                <a href="{{ route('admin.tags.edit', $tag ) }}" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="left" title="Editar {{$tag->name}}"><i class="far fa-edit mr-1"></i>Editar</a>
+                                <a href="{{ route('admin.tags.edit', $tag) }}" class="btn btn-outline-secondary"
+                                    data-toggle="tooltip" data-placement="left" title="Edit {{ $tag->name }}"><i
+                                        class="far fa-edit mr-1"></i>Edit</a>
                             </td>
                             <td width="14%">
-                                <form action="{{ route( 'admin.tags.destroy', $tag ) }}" method="POST" class="delete-tag">
+                                <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST" class="delete-tag">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-outline-danger" type="submit" data-toggle="tooltip" data-placement="left" title="Eliminar {{$tag->name}}"><i class="far fa-trash-alt mr-1"></i>Eliminar</button>
+                                    <button class="btn btn-outline-danger" type="submit" data-toggle="tooltip"
+                                        data-placement="left" title="Delete {{ $tag->name }}"><i
+                                            class="far fa-trash-alt mr-1"></i>Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -57,7 +63,8 @@
             </table>
         </div>
         <div class="card-footer text-sm text-muted">
-            Las <strong>Etiquetas</strong> nos permiten asociar un curso a una etiqueta, y esta a su vez se asocia a una subcategoría específica, para una mejor organización.
+            <strong>Labels</strong> allow us to associate a course with a label, and this in turn is associated with a
+            specific subcategory, for better organization.
         </div>
     </div>
 @stop
@@ -70,34 +77,33 @@
     @if (session('delete') == 'success')
         <script>
             Swal.fire(
-                '¡Eliminada!',
-                'Se eliminó la etiqueta solicitada.',
+                'Delete!',
+                'The requested tag has been removed.',
                 'success'
-                );
+            );
         </script>
     @endif
 
     <script>
-
-        $('.delete-tag').submit(function(e){
+        $('.delete-tag').submit(function(e) {
             e.preventDefault();
 
             Swal.fire({
-            title: '¿Seguro que quieres eliminar esta etiqueta?',
-            text: "La operación no podrá ser revertida y los cursos que hayan sido asignados a esta etiqueta serán mostrados 'Sin etiqueta'!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: '¡Si, eliminar!',
-            cancelButtonText: 'Cancelar'
+                title: 'Are you sure you want to remove this tag?',
+                text: "The operation cannot be reversed and the courses that have been assigned to this label will be displayed 'No label'!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete!',
+                cancelButtonText: 'Cancel'
             }).then((result) => {
-            if (result.value) {
+                if (result.value) {
 
-                // Submit the form
-                this.submit();
+                    // Submit the form
+                    this.submit();
 
-            }
+                }
             })
         });
     </script>

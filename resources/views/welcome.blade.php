@@ -6,9 +6,11 @@
             @livewire('search')
         </div>
     </section> --}}
-    <div class="p-8 text-center flex items-center justify-center" style="background: #ffa333;color: #404040;">
-        <p class="font-semibold text-3xl">Monthly payment options now available!</p>
-        <button class="ml-5 py-2 px-4 border-2 border-gray-700 rounded-md font-semibold text-xl">Enquire now</button>
+    <div class="p-4 md:p-6 text-left md:text-center flex flex-col md:flex-row items-start md:items-center justify-center"
+        style="background: #ffa333;color: #404040;">
+        <p class="font-semibold text-2xl">Monthly payment options now available!</p>
+        <button class="mt-2 md:ml-5 py-2 px-4 border-2 border-gray-700 rounded-md font-semibold text-xl">Enquire
+            now</button>
     </div>
 
     @if (count($publish_slides))
@@ -21,7 +23,6 @@
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-32 md:h-96 flex items-center py-32 ">
                         <div
                             class="w-full md:w-3/4 lg:w-1/2 px-8 py-8 {{ $item->background_color != '' && $item->background_color != 'bg-white' ? $item->background_color . '-' . $item->background_color_saturation : 'bg-white' }} {{ $item->background_color_opacity != '' ? $item->background_color_opacity : 'bg-opacity-25' }} ">
-
                             <!-- titulo -->
                             <h1
                                 class="{{ $item->title_color != '' && $item->title_color != 'text-white' ? $item->title_color . '-' . $item->title_color_saturation : 'text-white' }} font-extrabold text-4xl sm:text-5xl md:text-6xl">
@@ -53,16 +54,16 @@
         </div>
     @else
         <!-- hero -->
-        <section class="bg-cover h-screen"
+        <section class="bg-cover vh-80"
             style="background-image:linear-gradient(rgba(38, 42, 47, 0.7), rgba(12, 20, 29, 0.6)), url({{ asset('images/home/slider/hero2.jpg') }})">
             <div class="container px-4 sm:px-6 lg:px-8 py-36">
                 <div class="w-full md:w-3/4 lg:w-1/2">
-                    <h1 class="text-white font-thin text-xl md:text-5xl">
+                    <h1 class="text-white font-thin text-2xl md:text-5xl">
                         {{ __('Online health and social care training that fits around you') }}
                     </h1>
                     <p class="text-white my-3 md:my-10 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0 mb-4">
                         {{ __('Innovative, flexible and affordable e-learning for health and social care providers. Learn any time, any place.
-                                                                                                                        ') }}
+                                                                                                                                                ') }}
                     </p>
                     @livewire('search')
                 </div>
@@ -72,7 +73,7 @@
 
 
     <div style="background: #823d80" class="text-white">
-        <div class="container grid grid-cols-3 gap-10 p-10">
+        <div class="container grid grid-cols-1 md:grid-cols-3 gap-10 p-10">
             <div class="flex items-center">
                 <div><img class="chart-icon" src="https://www.social-care.tv/images/play-circle.svg" alt="">
                 </div>
@@ -98,140 +99,40 @@
     </style>
     <div class="container py-10">
         <p class="text-center text-4xl my-10">Learn from 71 online video courses</p>
-        <div class="grid grid-cols-4 gap-5">
-            <div
-                class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
-                <div class='max-w-md mx-auto'>
-                    <div class='h-52'
-                        style='background-image:url(https://www.social-care.tv/images/courses/small/assessing-needs.jpg);background-size:cover;background-position:center'>
-                    </div>
-                    <div class='p-4'>
-                        <p class='text-gray-700 text-2xl leading-7 my-1'>Assessing Needs</p>
-                        <div class='flex justify-between my-10 text-lg items-center'>
-                            <div class="flex items-center"><i class="far fa-clock mr-1"></i>40 - 50m</div>
-                            <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span></div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+            @foreach ($latest_courses as $lc)
+            <a href="{{ route('courses.show', [app()->getLocale(), $lc] ) }}">
+                <div
+                    class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
+                    <div class='max-w-md mx-auto'>
+                        <div class='h-52'
+                            style='background-image:url({{ Storage::url( $lc->image->url ) }});background-size:cover;background-position:center'>
+                        </div>
+                        <div class='p-4'>
+                            <p class='text-gray-700 text-2xl leading-7 my-1'>{{ $lc->title }}</p>
+                            <div class='flex justify-between my-10 text-lg items-center'>
+                                <div class="flex items-center"><i class="far fa-clock mr-1"></i>{{ $lc->duration_in_minutes }}</div>
+                                <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div
-                class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
-                <div class='max-w-md mx-auto'>
-                    <div class='h-52'
-                        style='background-image:url(https://www.social-care.tv/images/courses/small/covid-thumb.jpg);background-size:cover;background-position:center'>
-                    </div>
-                    <div class='p-4'>
-                        <p class='text-gray-700 text-2xl leading-7 my-1'>COVID-19</p>
-                        <div class='flex justify-between my-10 text-lg items-center'>
-                            <div class="flex items-center"><i class="far fa-clock mr-1"></i>40 - 50m</div>
-                            <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
-                <div class='max-w-md mx-auto'>
-                    <div class='h-52'
-                        style='background-image:url(https://www.social-care.tv/images/courses/small/activities-and-exercise.jpg);background-size:cover;background-position:center'>
-                    </div>
-                    <div class='p-4'>
-                        <p class='text-gray-700 text-2xl leading-7 my-1'>Activities & Exercises</p>
-                        <div class='flex justify-between my-10 text-lg items-center'>
-                            <div class="flex items-center"><i class="far fa-clock mr-1"></i>40 - 50m</div>
-                            <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
-                <div class='max-w-md mx-auto'>
-                    <div class='h-52'
-                        style='background-image:url(https://www.social-care.tv/images/courses/small/food-hygiene.jpg);background-size:cover;background-position:center'>
-                    </div>
-                    <div class='p-4'>
-                        <p class='text-gray-700 text-2xl leading-7 my-1'>Food Hygiene</p>
-                        <div class='flex justify-between my-10 text-lg items-center'>
-                            <div class="flex items-center"><i class="far fa-clock mr-1"></i>40 - 50m</div>
-                            <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
-                <div class='max-w-md mx-auto'>
-                    <div class='h-52'
-                        style='background-image:url(https://www.social-care.tv/images/courses/small/safeguarding-of-vunerable-adults.jpg);background-size:cover;background-position:center'>
-                        <button class="bg-yellow-400 uppercase text-white p-4">popular</button>
-                    </div>
-                    <div class='p-4'>
-                        <p class='text-gray-700 text-2xl leading-7 my-1'>Safeguarding of Vulnerable Adults</p>
-                        <div class='flex justify-between my-10 text-lg items-center'>
-                            <div class="flex items-center"><i class="far fa-clock mr-1"></i>40 - 50m</div>
-                            <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
-                <div class='max-w-md mx-auto'>
-                    <div class='h-52'
-                        style='background-image:url(https://www.social-care.tv/images/courses/small/skin-care.jpg);background-size:cover;background-position:center'>
-                    </div>
-                    <div class='p-4'>
-                        <p class='text-gray-700 text-2xl leading-7 my-1'>Skin Care</p>
-                        <div class='flex justify-between my-10 text-lg items-center'>
-                            <div class="flex items-center"><i class="far fa-clock mr-1"></i>40 - 50m</div>
-                            <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
-                <div class='max-w-md mx-auto'>
-                    <div class='h-52'
-                        style='background-image:url(https://www.social-care.tv/images/courses/small/covid-thumb.jpg);background-size:cover;background-position:center'>
-                    </div>
-                    <div class='p-4'>
-                        <p class='text-gray-700 text-2xl leading-7 my-1'>Assessing Needs</p>
-                        <div class='flex justify-between my-10 text-lg items-center'>
-                            <div class="flex items-center"><i class="far fa-clock mr-1"></i>40 - 50m</div>
-                            <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
-                <div class='max-w-md mx-auto'>
-                    <div class='h-52'
-                        style='background-image:url(https://www.social-care.tv/images/courses/small/covid-thumb.jpg);background-size:cover;background-position:center'>
-                    </div>
-                    <div class='p-4'>
-                        <p class='text-gray-700 text-2xl leading-7 my-1'>Assessing Needs</p>
-                        <div class='flex justify-between my-10 text-lg items-center'>
-                            <div class="flex items-center"><i class="far fa-clock mr-1"></i>40 - 50m</div>
-                            <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </a>
+            @endforeach
+
         </div>
     </div>
 
     <div class="text-center py-10">
-        <button class="btn-primary">See more courses</button>
+        <a href="{{ route('courses.index', [app()->getLocale()]) }}" :active="request()->routeIs('home')" class="btn-primary px-6 py-3">See more courses</a>
     </div>
 
 
     <section class="container py-10">
-        <div class="grid grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <img src="https://www.social-care.tv/images/homepage/subtitles-on-screen-678.jpg" alt="">
-            <div class="p-20">
+            <div class="p-0 md:p-20">
                 <p class="font-thin text-4xl mb-5">Subtitle enabled for enhanced accessibility</p>
                 <p class="text-lg">Here at Social Care TV, accessibility for all is high on our list of priorities and
                     we are constantly adding subtitles to our expanding portfolio to ensure that all our users have the
@@ -242,12 +143,13 @@
 
     <section class="container py-10">
         <p class="text-center text-4xl my-10">Why choose Social Care TV?</p>
-        <div class="grid grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div class="w-full h-full">
                 <img class="w-4/5 h-3/4 mx-auto" src="https://www.social-care.tv/images/watch.svg" alt="">
                 <div class="text-center">
                     <p class="font-thin text-3xl my-5">Learn at your own pace</p>
-                    <p class="text-lg">Complete your course in two hours or take two weeks. The choice is yours. You
+                    <p class="text-lg mb-5">Complete your course in two hours or take two weeks. The choice is yours.
+                        You
                         have the freedom to
                         choose your own time to enjoy your study.</p>
                 </div>
@@ -256,7 +158,8 @@
                 <img class="w-4/5 h-3/4 mx-auto" src="https://www.social-care.tv/images/certificate.svg" alt="">
                 <div class="text-center">
                     <p class="font-thin text-3xl my-5">Certificated courses</p>
-                    <p class="text-lg">You will be awarded a certificate showing your test score upon completion. This
+                    <p class="text-lg mb-5">You will be awarded a certificate showing your test score upon completion.
+                        This
                         certifies that you have completed the course, having understood the material within it.</p>
                 </div>
             </div>
@@ -264,7 +167,8 @@
                 <img class="w-4/5 h-3/4 mx-auto" src="https://www.social-care.tv/images/stats.svg" alt="">
                 <div class="text-center">
                     <p class="font-thin text-3xl my-5">Monitor progress with ease</p>
-                    <p class="text-lg">Managers can keep track of their trainees through an online interface and easily
+                    <p class="text-lg mb-5">Managers can keep track of their trainees through an online interface and
+                        easily
                         retrieve learning logs for any staff member.</p>
                 </div>
             </div>
@@ -272,13 +176,13 @@
     </section>
 
     <div class="py-20 flex justify-center">
-        <button class="btn-primary">Find out more</button>
-        <button class="btn-secondary">Take a sample course</button>
+        <button class="btn-primary px-6 py-3">Find out more</button>
+        <button class="btn-secondary px-6 py-3">Take a sample course</button>
     </div>
 
 
     <section class="container py-10">
-        <div class="grid grid-cols-2 gap-10 p-20">
+        <div class="grid grid-cols-2 gap-10 p-0 md:p-20">
             <div class="w-full">
                 <p class="text-4xl font-thin">Accredited e-learning provider</p>
                 <p class="text-lg my-5">Social Care TV is an accredited and endorsed training provider. We take great
@@ -288,7 +192,7 @@
                     are proud to be Cyber Essentials accredited.</p>
                 <button class="btn-primary">Find out more</button>
             </div>
-            <div class="w-full flex items-center justify-around">
+            <div class="w-full flex flex-col md:flex-row items-center justify-around">
                 <img src="https://www.social-care.tv/images/homepage/cpd-corporate-member-tall-homepage.png"
                     alt="">
                 <img src="https://www.social-care.tv/images/accreditation-logos/sfc-endorsed-provider-until-jan-2024-home.png"
@@ -301,7 +205,7 @@
 
     <section class="container">
         <p class="text-center text-4xl my-10">News and views</p>
-        <div class="grid grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div style="height: 600px"
                 class='w-full rounded-lg  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-gray-700 bd hover:shadow-2xl'>
                 <div class='mx-auto'>
@@ -311,7 +215,8 @@
                     <div class='p-8'>
                         <p class="my-2">30th June 2023</p>
                         <p class='text-gray-700 text-2xl leading-7 my-4'>The Care Workers’ Charity</p>
-                        <p class="text-lg">We have heard countless stories of care workers going above and beyond their expected duties,
+                        <p class="text-lg">We have heard countless stories of care workers going above and beyond their
+                            expected duties,
                             heartwarming and heartbreaking in equal measure, and have always been acutely aware of the
                             critical work completed by care workers, often with very little recognition or reward.</p>
                     </div>
@@ -326,7 +231,8 @@
                     <div class='p-8'>
                         <p class="my-2">24th May 2023</p>
                         <p class='text-gray-700 text-2xl leading-7 my-4'>The Impact of Recognition</p>
-                        <p class="text-lg">We have heard countless stories of care workers going above and beyond their expected duties,
+                        <p class="text-lg">We have heard countless stories of care workers going above and beyond their
+                            expected duties,
                             heartwarming and heartbreaking in equal measure, and have always been acutely aware of the
                             critical work completed by care workers, often with very little recognition or reward.</p>
                     </div>
@@ -341,7 +247,8 @@
                     <div class='p-8'>
                         <p class="my-2">28th April 2023</p>
                         <p class='text-gray-700 text-2xl leading-7 my-4'>Care Worker of the Month – April 2023</p>
-                        <p class="text-lg">We have heard countless stories of care workers going above and beyond their expected duties,
+                        <p class="text-lg">We have heard countless stories of care workers going above and beyond their
+                            expected duties,
                             heartwarming and heartbreaking in equal measure, and have always been acutely aware of the
                             critical work completed by care workers, often with very little recognition or reward.</p>
                     </div>
@@ -352,9 +259,10 @@
 
     <section style="background: #03ABC9">
         <p class="text-center text-4xl my-10 text-white pt-20">Sign up for offers</p>
-        <p class="text-lg text-center text-white">Join our mailing list and receive information on special offers and free courses.  </p>
+        <p class="text-lg text-center text-white">Join our mailing list and receive information on special offers and
+            free courses. </p>
         <div class="container pb-8">
-            <div class="mt-6 mb-10 p-20 flex items-center justify-between">
+            <div class="mt-6 mb-10 p-0 md:p-20 flex items-center justify-between">
                 <input class="w-full mr-3 rounded-md p-3 hover:shadow-md" type="text" placeholder="First name">
                 <input class="w-full mr-3 rounded-md p-3 hover:shadow-md" type="text" placeholder="Surname">
                 <input class="w-full mr-3 rounded-md p-3 hover:shadow-md" type="email" placeholder="Email address">
@@ -431,4 +339,3 @@
     </div>
 
 </x-app-layout>
-

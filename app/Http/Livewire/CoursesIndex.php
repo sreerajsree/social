@@ -28,17 +28,26 @@ class CoursesIndex extends Component
         $modalities = Modality::all();
 
         $courses = Course::where('status', 3)
-            ->category( $this->category_id )
-            ->type( $this->type_id )
-            ->level( $this->level_id )
-            ->modality( $this->modality_id )
+            ->category($this->category_id)
+            ->type($this->type_id)
+            ->level($this->level_id)
+            ->modality($this->modality_id)
             ->latest('id')
             ->paginate(8);
 
-        return view('livewire.courses-index', compact('courses', 'categories', 'levels', 'types', 'modalities'));
+        $featuredcourses = Course::where('featured', 1)
+            ->category($this->category_id)
+            ->type($this->type_id)
+            ->level($this->level_id)
+            ->modality($this->modality_id)
+            ->latest('id')
+            ->get();
+            
+        return view('livewire.courses-index', compact('courses', 'categories', 'levels', 'types', 'modalities', 'featuredcourses'));
     }
 
-    public function resetFilters(){
+    public function resetFilters()
+    {
         $this->reset([
             'category_id',
             'level_id',

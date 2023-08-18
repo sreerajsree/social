@@ -34,6 +34,6 @@ class ContactController extends Controller
         
         Contact::create($request->all());
 
-        return back()->with('message_sent', 'Su mensaje se ha enviado satisfactoriamente!');
+        return back()->with('message_sent', 'Your message has been sent successfully!');
     }
 }

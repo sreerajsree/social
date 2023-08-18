@@ -45,7 +45,7 @@ class PlatformController extends Controller
 
         $platform = Platform::create( $request->all() );
 
-        return redirect()->route('admin.platforms.edit', compact('platform'))->with('info', 'Se ha agregado una nueva plataforma.');
+        return redirect()->route('admin.platforms.edit', compact('platform'))->with('info', 'A new platform has been added.');
     }
 
     /**
@@ -85,7 +85,7 @@ class PlatformController extends Controller
 
         $platform->update( $request->all() );
 
-        return redirect()->route('admin.platforms.edit', compact('platform'))->with('info', 'Se ha actualizado la plataforma.');
+        return redirect()->route('admin.platforms.edit', compact('platform'))->with('info', 'The platform has been updated.');
     }
 
     /**

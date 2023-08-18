@@ -17,7 +17,7 @@ return [
     'warning'                       => 'Warning',
     'information'                   => 'Information',
 
-    'categories_trans_key'          => 'Categorías',
-    'topics_trans_key'              => 'Subcategorías o Temas',
-    'tags_trans_key'                => 'Etiquetas'
+    'categories_trans_key'          => 'Categories',
+    'topics_trans_key'              => 'Subcategories',
+    'tags_trans_key'                => 'Tags'
 ];

@@ -12,7 +12,7 @@
                     id="search"
                     x-ref="searchField"
                     x-on:input.debounce.400ms="isTyped = ($event.target.value != '')"
-                    placeholder='Buscar...'
+                    placeholder='Look for...'
                     autocomplete="off"
                     wire:keydown="clear"
                     wire:model.debounce.500ms="search"
@@ -49,7 +49,7 @@
                                         <td>{{ $course->editor->name }} {{ $course->editor->lastname }}</td>
                                     @endcan
                                     <td>
-                                        {{ $course->status == '3' ? 'Publicado' : 'Borrador' }}                                           <br>
+                                        {{ $course->status == '3' ? 'Published' : 'Scribbler' }}                                           <br>
                                     </td>
                                     {{-- <td>
                                         <a class="btn btn-outline-secondary" href="{{ route('admin.users.edit', [app()->getLocale(), $user] ) }}">Editar</a>

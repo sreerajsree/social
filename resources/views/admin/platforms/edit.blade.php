@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-primary"><i class="far fa-edit mr-1"></i>Editar plataforma</h1>
+    <h1 class="text-primary"><i class="far fa-edit mr-1"></i>Edit Platform</h1>
 @stop
 
 @section('content')
@@ -16,15 +16,15 @@
         <div class="card-body">
             {!! Form::model($platform, ['route' => ['admin.platforms.update', $platform ], 'method' => 'put' ]) !!}
                 <div class="form-group">
-                    {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la plataforma']) !!}
+                    {!! Form::label('name', 'Name') !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the platform name']) !!}
                 </div>
 
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
 
-                {!! Form::submit('Actualizar plataforma', ['class' => 'btn btn-primary float-right']) !!}
+                {!! Form::submit('Update Platform', ['class' => 'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
     </div>

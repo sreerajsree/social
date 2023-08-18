@@ -55,7 +55,7 @@ class TypeController extends Controller
 
         // return $type;
 
-        return redirect()->route('admin.types.edit', compact('locale', 'type'))->with('info', 'Se ha creado un nuevo tipo de curso.');
+        return redirect()->route('admin.types.edit', compact('locale', 'type'))->with('info', 'A new course type has been created.');
     }
 
     /**
@@ -107,7 +107,7 @@ class TypeController extends Controller
         //     'name' => $request->name
         // ]);
 
-        return redirect()->route('admin.types.edit', compact('locale', 'type'))->with('info', 'Se ha actualizado el tipo de curso.');
+        return redirect()->route('admin.types.edit', compact('locale', 'type'))->with('info', 'The course type has been updated.');
     }
 
     /**

@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-primary">Añadir Nuevo Rol</h1>
+    <h1 class="text-primary">Add New Role</h1>
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
             @include('admin.roles.partials.form')
 
             <div class="card-footer">
-                {!! Form::submit('Crear Rol', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Create Role', ['class' => 'btn btn-primary']) !!}
             </div>
         {!! Form::close() !!}
     </div>
@@ -24,5 +24,5 @@
 @stop
 
 @section('js')
-    <script> console.log('LMS funcionando!'); </script>
+    <script> console.log('Code working!'); </script>
 @stop

@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Empleateya LMS')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1>Observaciones del curso</h1>
+    <h1>Course Observations</h1>
     <h2>{{ $course->title }}</h2>
 @stop
 

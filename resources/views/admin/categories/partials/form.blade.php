@@ -1,8 +1,8 @@
 <div class="form-group">
-    {!! Form::label('name', 'Nombre') !!}
-    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la categoría']) !!}
+    {!! Form::label('name', 'Name') !!}
+    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the category name']) !!}
     @if(Route::is('admin.categories.edit') )
-        <span class="text-muted text-sm">Cursos registrados con esta categoría: {{ count($category_courses) }}</span>
+        <span class="text-muted text-sm">Courses registered with this category: {{ count($category_courses) }}</span>
     @endif
 </div>
 
@@ -22,7 +22,7 @@
  <!-- icon -->
  <div class="form-group">
     {!! Form::label( 'icon', Lang::get('Icono') ) !!}
-    {!! Form::text('icon', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la clase del icono desde FontAwesome' ]) !!}
+    {!! Form::text('icon', null, ['class' => 'form-control', 'placeholder' => 'Enter the icon class from Font Awesome' ]) !!}
 </div>
 @error('icon')
     <span class="text-danger">{{ $message }}</span>
@@ -47,8 +47,8 @@
 
 <div class="card">
     <div class="card-body">
-        <h2 class="card-title"><strong>Subcategorías o Temas</strong></h2>
-        <p class="card-text">Selecciona los temas que estarán relacionados a esta categoría.</p>
+        <h2 class="card-title"><strong>Subcategories or Themes</strong></h2>
+        <p class="card-text">Select the topics that will be related to this category.</p>
       </div>
       <div class="d-flex flex-wrap justify-content-start p-4">
         @foreach ( $topics as $topic )

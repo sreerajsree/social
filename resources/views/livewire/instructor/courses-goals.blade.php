@@ -1,5 +1,5 @@
 <section>
-    <h1 class="text-2xl font-bold"><i class="fas fa-flag-checkered mr-2"></i>Metas del curso</h1>
+    <h1 class="text-2xl font-bold"><i class="fas fa-flag-checkered mr-2"></i>Course Goals</h1>
     <hr class="mt-2 mb-6">
 
     @foreach ( $course->goals as $item )
@@ -10,7 +10,7 @@
                 @if( $goal->id == $item->id )
 
                     <form wire:submit.prevent="update">
-                        <input wire:model="goal.name" class="form-input w-full {{($errors->has('goal.name') ? ' border-red-600' : '')}}" type="text" placeholder="Ingrese una meta">
+                        <input wire:model="goal.name" class="form-input w-full {{($errors->has('goal.name') ? ' border-red-600' : '')}}" type="text" placeholder="Enter a goal">
                         @error('goal.name')
                             <span class="invalid-feedback">
                                 <strong class="text-xs text-red-700">{{ $message }}</strong>
@@ -39,14 +39,14 @@
     <article class="card">
         <div class="card-body bg-gray-100">
             <form wire:submit.prevent="store">
-                <input wire:model="name" type="text" class="form-input w-full rounded {{($errors->has('name') ? 'border-red-600' : '')}}" placeholder="Añade el nombre de la meta">
+                <input wire:model="name" type="text" class="form-input w-full rounded {{($errors->has('name') ? 'border-red-600' : '')}}" placeholder="Add the name of the goal">
                 @error('name')
                     <span class="invalid-feedback">
                         <strong class="text-xs text-red-700">{{ $message }}</strong>
                     </span>
                 @enderror
                 <div class="flex justify-end mt-2">
-                    <button type="submit" class="btn btn-primary">Añadir meta</button>
+                    <button type="submit" class="btn btn-primary">Add Goal</button>
                 </div>
             </form>
         </div>

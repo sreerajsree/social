@@ -45,7 +45,7 @@ class MenuItemController extends Controller
 
         $item = MenuItem::create( $request->all() );
 
-        return redirect()->route('admin.items.edit', $item )->with('info', 'El item del menú ha sido creado exitosamente');
+        return redirect()->route('admin.items.edit', $item )->with('info', 'The menu item has been created successfully');
     }
 
     /**
@@ -85,7 +85,7 @@ class MenuItemController extends Controller
 
         $item->update( $request->all() );
 
-        return redirect()->route('admin.items.edit', $item )->with('info', 'El item de menú se ha actualizado correctamente.');
+        return redirect()->route('admin.items.edit', $item )->with('info', 'The menu item has been successfully updated.');
     }
 
     /**

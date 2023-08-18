@@ -32,7 +32,7 @@ class TagController extends Controller
     {
         $topics = Topic::orderBy('name')->get();
         $topic_list = [
-            '0' => '-- Seleccione una subcategoría --',
+            '0' => '-- Select a subcategory --',
         ];
 
         foreach ($topics as $topic) {

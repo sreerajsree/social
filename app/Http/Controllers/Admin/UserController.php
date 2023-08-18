@@ -56,7 +56,7 @@ class UserController extends Controller
     {
         $user->roles()->sync($request->roles);
 
-        return redirect()->route('admin.users.edit', compact('user'))->with('rol_granted', 'Se ha actualizado el rol del usuario');
+        return redirect()->route('admin.users.edit', compact('user'))->with('rol_granted', 'User role has been updated');
     }
 
     /**

@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'Add Category | care.training')
 
 @section('content_header')
-    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Añadir categoría</h1>
+    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Add Category</h1>
 @stop
 
 @section('content')
@@ -15,9 +15,9 @@
 
                     @include('admin.categories.partials.form')
 
-                    <a href="{{ url()->previous() }}" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Omitir y volver a la vista anterior"><i class="fas fa-arrow-circle-left mr-2"></i>Volver atrás</a> 
+                    <a href="{{ url()->previous() }}" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Skip and return to previous view"><i class="fas fa-arrow-circle-left mr-2"></i>Go back</a> 
 
-                    {!! Form::submit('Añadir categoría', ['class' => 'btn btn-primary float-right', 'data-toggle' => 'tooltip', 'data-placement' => 'left', 'title' => 'Añadir esta  categoría']) !!}
+                    {!! Form::submit('Add Category', ['class' => 'btn btn-primary float-right', 'data-toggle' => 'tooltip', 'data-placement' => 'left', 'title' => 'Add this category']) !!}
                 {!! Form::close() !!}
             </div>
         </div>

@@ -107,6 +107,7 @@ Route::group([
     Route::post('/contact/sent-email', [ContactController::class, 'sendEmail'])->name('contact.send');
 
     Route::get('/about', [PageController::class, 'about'])->name('pages.about');
+    Route::get('/why-choose-us', [PageController::class, 'whyChooseUs'])->name('pages.wcu');
 
     Route::get('/glosary', [PageController::class, 'glosary'])->name('pages.glosary');
 

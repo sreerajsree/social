@@ -45,7 +45,7 @@ class ModalityController extends Controller
 
         $modality = Modality::create( $request->all() );
 
-        return redirect()->route('admin.modalities.edit', compact('modality'))->with('info', 'La modalidad ha sido creada.');
+        return redirect()->route('admin.modalities.edit', compact('modality'))->with('info', 'The mode has been created.');
     }
 
     /**
@@ -85,7 +85,7 @@ class ModalityController extends Controller
 
         $modality->update($request->all() );
 
-        return redirect()->route('admin.modalities.edit', compact('modality'))->with('info', 'Se ha actualizado la modalidad.');
+        return redirect()->route('admin.modalities.edit', compact('modality'))->with('info', 'Modality has been updated.');
     }
 
     /**

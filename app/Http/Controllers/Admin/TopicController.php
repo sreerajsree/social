@@ -32,7 +32,7 @@ class TopicController extends Controller
     {
         $categories = Category::orderBy('name')->get();
         $category_list = [
-            '0' => '-- Seleccione una categoría --',
+            '0' => '-- Select a category --',
         ];
 
         foreach ($categories as $category) {

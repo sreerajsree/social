@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Crear slide</h1>
+    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Create Slide</h1>
 @stop
 
 @section('content')

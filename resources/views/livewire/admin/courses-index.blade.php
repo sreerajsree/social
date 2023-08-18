@@ -11,7 +11,7 @@
                     id="search"
                     x-ref="searchField"
                     x-on:input.debounce.400ms="isTyped = ($event.target.value != '')"
-                    placeholder='Buscar...'
+                    placeholder='Look for...'
                     autocomplete="off"
                     wire:keydown="clear"
                     wire:model.debounce.500ms="search"
@@ -48,7 +48,7 @@
                                             <td>{{ $course->editor->name }} {{ $course->editor->lastname }}</td>
                                         @endcan
                                         <td>
-                                            {{ $course->status == '3' ? 'Publicado' : 'Borrador' }}
+                                            {{ $course->status == '3' ? 'Published' : 'Scribbler' }}
                                         </td>
                                         {{-- <td>
                                             <a class="btn btn-outline-secondary" href="{{ route('admin.users.edit', [app()->getLocale(), $user] ) }}">Editar</a>
@@ -66,7 +66,7 @@
 
             @else
                 <div class="alert alert-light" role="alert">
-                    <strong>Nada por aquí!</strong> No encuentro datos que coincidan con tu busqueda :(
+                    <strong>Nothing here!</strong> I can't find data matching your search: (
                 </div>
             @endif
 

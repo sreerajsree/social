@@ -45,13 +45,13 @@ return [
     |
     */
 
-    'logo' => '<b>CAPACÍTATE</b> RD',
+    'logo' => '<b>CARE TRAINING</b>',
     //'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img' => 'images/admin/EmpleateyaLMSLogo.svg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'CAPACÍTATE RD',
+    'logo_img_alt' => 'CARE TRAINING',
 
     /*
     |--------------------------------------------------------------------------
@@ -272,7 +272,7 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
-        ['header' => 'OPCIONES DE CURSOS'],
+        ['header' => 'COURSE OPTIONS'],
         // [
         //     'text' => 'Cursos en revisión',
         //     'route'  => 'admin.courses.index',

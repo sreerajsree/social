@@ -25,9 +25,8 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
-            'document_id' => ['required', 'string', 'max:15', 'unique:users'],
-            // 'email' => ['nullable', 'string', 'email', 'max:255', 'unique:users'],
-            'gender' => ['required'],
+            'email' => ['nullable', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:255'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
@@ -35,11 +34,13 @@ class CreateNewUser implements CreatesNewUsers
         return DB::transaction(function () use ($input) {
             return tap(User::create([
                 'name' => $input['name'],
+                'document_id' => 'CB',
                 'lastname' => $input['lastname'],
-                'document_type' => $input['document_type'],
-                'document_id' => $input['document_id'],
-                'gender' => $input['gender'],
+                'company' => $input['company'],
+                'phone' => $input['phone'],
+                'home' => $input['home'],
                 'email' => $input['email'],
+                'email_verified_at' => now(),
                 'password' => Hash::make($input['password']),
             ]), function (User $user) {
                 $this->createTeam($user);

@@ -72,17 +72,30 @@ class CourseController extends Controller
     /**
      *
      */
+
+    
+    public function app ($locale, $id) {
+
+        $app = Course::find($id);
+        $app->status = 3;
+        $app->save();
+
+
+        return redirect()->route('admin.courses.revision', compact('locale'))->with('success', __('The course has been successfully approved'));
+    } 
+
+
     public function approved( Course $course ){
 
 
         $this->authorize('revision', $course );
 
         /**
-         * (OPCIONAL)
+         * (OPTIONAL)
          *
-         * Si desea que al momento de un Administrador aprobar un curso el sistema valide
-         * si el curso tiene secciones añadidas, metas, requerimientos y una imagen distinta a la que trae por defecto
-         * para poder ser aprobado.
+         * If you want that when an Administrator approves a course, the system validates
+         * if the course has added sections, goals, requirements and a different image than the default one
+         * in order to be approved.
          */
         // if( !$course->sections || !$course->goals || !$course->requirements || !$course->image ){
         //     return back()->with('info', __('You cannot publish a course that is not properly completed'));

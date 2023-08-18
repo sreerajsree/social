@@ -1,7 +1,7 @@
 <div class="form-group">
-    {!! Form::label('topic_id', 'Subcategoría padre') !!}
+    {!! Form::label('topic_id', 'Parent Subcategory') !!}
     {!! Form::select('topic_id', $topic_list, null, ['class' => 'form-control']) !!}
-    {{-- @if(Route::is('admin.tags.edit') )
+    {{-- @if (Route::is('admin.tags.edit'))
         <span class="text-muted text-sm">Cursos registrados con esta etiqueta: {{ count($tag_courses) }}</span>
     @endif --}}
 </div>
@@ -11,8 +11,8 @@
 @enderror
 
 <div class="form-group">
-    {!! Form::label('name', 'Nombre') !!}
-    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la etiqueta']) !!}
+    {!! Form::label('name', 'Name') !!}
+    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the tag name']) !!}
 </div>
 
 @error('name')
@@ -21,17 +21,20 @@
 
 <!-- course-slug -->
 <div class="form-group">
-    {!! Form::label( 'slug', Lang::get('Slug') ) !!}
-    {!! Form::text('slug', null, ['readonly' => 'readonly', 'class' => 'form-control' ]) !!}
+    {!! Form::label('slug', Lang::get('Slug')) !!}
+    {!! Form::text('slug', null, ['readonly' => 'readonly', 'class' => 'form-control']) !!}
 </div>
 @error('slug')
     <span class="text-danger">{{ $message }}</span>
 @enderror
 
- <!-- icon -->
- <div class="form-group">
-    {!! Form::label( 'icon', Lang::get('Icono') ) !!}
-    {!! Form::text('icon', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la clase del icono desde FontAwesome' ]) !!}
+<!-- icon -->
+<div class="form-group">
+    {!! Form::label('icon', Lang::get('Icon')) !!}
+    {!! Form::text('icon', null, [
+        'class' => 'form-control',
+        'placeholder' => 'Enter the icon class from Font Awesome',
+    ]) !!}
 </div>
 @error('icon')
     <span class="text-danger">{{ $message }}</span>

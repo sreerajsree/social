@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Crear tipo</h1>
+    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Create Type</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
             {!! Form::open(['route' => 'admin.types.store']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del tipo de curso']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the name of the course type']) !!}
                 </div>
 
                 @error('name')

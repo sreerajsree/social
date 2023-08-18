@@ -8,7 +8,10 @@
         <title>{{ config('app.name', 'Capacítate RD') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -21,7 +24,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
-    <body class="font-sans antialiased">
+    <body class="ntialiased">
         <x-jet-banner />
 
         <div class="flex flex-col min-h-screen justify-between bg-gray-100">
@@ -41,7 +44,7 @@
 
                 <aside class="col-span-5 md:col-span-1 mb-8">
 
-                    <h2 class="font-bold text-lg">Editar curso</h2>
+                    <h2 class="font-bold text-lg">Edit Course</h2>
                     <h1 class="capitalize text-2xl mt-1">{{ $course->title }}</h1>
                     <!-- sidebar menu -->
                     <ul class="text-md text-gray-600 mt-6">
@@ -134,9 +137,7 @@
 
             <!-- Page Footer -->
             <footer class="main-footer bg-gray-800">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     @include('partials.footer.footer')
-                </div>
                 <!-- Footer Copyright -->
                 <section class="bg-gray-900">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-white">

@@ -65,7 +65,7 @@ class PartnerController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.partners.edit', compact('locale', 'partner'))->with('info', 'Se ha creado una nueva asociación.');
+        return redirect()->route('admin.partners.edit', compact('locale', 'partner'))->with('info', 'A new association has been created.');
 
     }
 
@@ -132,7 +132,7 @@ class PartnerController extends Controller
             }
         }
 
-        return redirect()->route('admin.partners.edit', compact('locale', 'partner'))->with('info', 'Se han actualizado los datos de la asociación.');
+        return redirect()->route('admin.partners.edit', compact('locale', 'partner'))->with('info', 'Association data has been updated.');
     }
 
     /**

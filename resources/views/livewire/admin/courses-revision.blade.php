@@ -11,7 +11,7 @@
                     id="search"
                     x-ref="searchField"
                     x-on:input.debounce.400ms="isTyped = ($event.target.value != '')"
-                    placeholder='Buscar...'
+                    placeholder='Look for...'
                     autocomplete="off"
                     wire:keydown="clear"
                     wire:model.debounce.500ms="search"
@@ -42,7 +42,7 @@
                                     <td>{{ $course->title }}</td>
                                     <td>{{ $course->category->name }}</td>
                                     <td width="12%">
-                                        <a class="btn btn-outline-secondary" href="{{ route('admin.courses.show', $course ) }}">Revisar</a>
+                                        <a class="btn btn-outline-secondary" href="{{ route('admin.courses.app', $course->id ) }}">Approve</a>
                                     </td>
                                     {{-- <td>
                                         <a class="btn btn-outline-secondary" href="{{ route('admin.users.edit', [app()->getLocale(), $user] ) }}">Editar</a>
@@ -53,7 +53,7 @@
                                 <tr>
                                     <td colspan="4">
                                         <div class="alert alert-warning mt-3" role="alert">
-                                            Por el momento no existen cursos en revisión.
+                                            At the moment there are no courses under review.
                                         </div>
                                     </td>
                                 </tr>
@@ -68,7 +68,7 @@
 
             @else
                 <div class="alert alert-light" role="alert">
-                    <strong>Nada por aquí!</strong> No encuentro datos que coincidan con tu busqueda :(
+                    <strong>Nothing here!</strong> I can't find data that matches your search :(
                 </div>
             @endif
 

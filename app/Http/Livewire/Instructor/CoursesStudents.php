@@ -41,6 +41,6 @@ class CoursesStudents extends Component
     }
 
     public function reminder( $email ){
-        SendLoginReminderEmailJob::dispatch( $email, 'Recordatorio de inicio de sesión' );
+        SendLoginReminderEmailJob::dispatch( $email, 'Login Reminder' );
     }
 }

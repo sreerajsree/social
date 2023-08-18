@@ -101,26 +101,26 @@ class AppServiceProvider extends ServiceProvider
             // List all courses for Admin users"
             $event->menu->addAfter('dashboard', [
                 'key'           => 'admin_courses',
-                'text'          => 'Cursos',
+                'text'          => 'Courses',
                 // 'url'           => route('admin.courses.index' ), // url/route
                 'icon'          => 'fas fa-laptop mr-1',
                 'can'           => 'view-dashboard',
                 'submenu'       => [
                     [
                         'key'   => 'admin_all_courses',
-                        'text'  => 'Todos los cursos',
+                        'text'  => 'All Courses',
                         'url'   => route('admin.courses.index'),
                         'icon'  => 'fas fa-laptop mr-1',
                     ],
                     [
                         'key'   => 'admin_published_courses',
-                        'text'  => 'Publicados',
+                        'text'  => 'Published',
                         'url'   => route('admin.courses.published'),
                         'icon'  => 'fas fa-check-circle mr-1',
                     ],
                     [
                         'key'   => 'admin_course_revision',
-                        'text'  => 'Cursos en revisión',
+                        'text'  => 'Courses under review',
                         'url'   => route('admin.courses.revision'),
                         'icon'  => 'fas fa-search mr-1',
                     ],
@@ -168,7 +168,7 @@ class AppServiceProvider extends ServiceProvider
             // Manage users
             $event->menu->addAfter('roles', [
                 'key'         => 'users',
-                'text'        => 'Usuarios',
+                'text'        => 'Users',
                 'url'           => route('admin.users.index'), // url/route
                 'icon'        => 'fas fa-fw fa-users',
                 'active'      => ['admin/users/*'],
@@ -178,20 +178,20 @@ class AppServiceProvider extends ServiceProvider
             // List all contact messages
             $event->menu->addAfter('users', [
                 'key'           => 'admin_contacts',
-                'text'          => 'Mensajes',
+                'text'          => 'Messages',
                 // 'url'           => route('admin.courses.index' ), // url/route
                 'icon'          => 'fas fa-envelope mr-1',
                 'can'           => 'view-dashboard',
                 'submenu'       => [
                     [
                         'key'   => 'admin_contacts_inbox',
-                        'text'  => 'Bandeja de entrada',
+                        'text'  => 'Inbox',
                         'url'   => route('admin.contacts'),
                         'icon'  => 'fas fa-inbox mr-1',
                     ],
                     [
                         'key'   => 'admin_contacts_deleted',
-                        'text'  => 'Mensajes eliminados',
+                        'text'  => 'deleted messages',
                         'url'   => route('admin.contacts.deleted'),
                         'icon'  => 'far fa-trash-alt mr-1',
                     ],
@@ -211,7 +211,7 @@ class AppServiceProvider extends ServiceProvider
             // ADD HEADER
             $event->menu->addAfter('slides', [
                 'key'         => 'course_options',
-                'header'        => 'OPCIONES DE CURSOS',
+                'header'        => 'COURSE OPTIONS',
             ]);
 
             // Courses with status "REVISION"
@@ -254,7 +254,7 @@ class AppServiceProvider extends ServiceProvider
             // Manage Types
             $event->menu->addAfter('tags', [
                 'key'           => 'types',
-                'text'          => 'Tipos',
+                'text'          => 'Types',
                 'url'           => route('admin.types.index'), // url/route
                 'icon'          => 'fas fa-photo-video mr-1',
                 'active'        => ['admin/types/*'],
@@ -263,7 +263,7 @@ class AppServiceProvider extends ServiceProvider
             // Manage Levels
             $event->menu->addAfter('types', [
                 'key'           => 'levels',
-                'text'          => 'Niveles',
+                'text'          => 'Levels',
                 'url'           => route('admin.levels.index'), // url/route
                 'icon'          => 'fas fa-layer-group mr-1',
                 'active'        => ['admin/levels/*'],
@@ -272,7 +272,7 @@ class AppServiceProvider extends ServiceProvider
             // Manage Levels
             $event->menu->addAfter('levels', [
                 'key'           => 'modalities',
-                'text'          => 'Modalidades',
+                'text'          => 'Modalities',
                 'url'           => route('admin.modalities.index'), // url/route
                 'icon'          => 'fas fa-laptop-house mr-1',
                 'active'        => ['admin/modalities/*'],
@@ -281,7 +281,7 @@ class AppServiceProvider extends ServiceProvider
             // Manage Levels
             $event->menu->addAfter('modalities', [
                 'key'           => 'platforms',
-                'text'          => 'Plataformas',
+                'text'          => 'Platforms',
                 'url'           => route('admin.platforms.index'), // url/route
                 'icon'          => 'fas fa-server mr-1',
                 'active'        => ['admin/platforms/*'],
@@ -290,7 +290,7 @@ class AppServiceProvider extends ServiceProvider
             // Manage Prices
             $event->menu->addAfter('platforms', [
                 'key'           => 'prices',
-                'text'          => 'Precios',
+                'text'          => 'Prices',
                 'url'           => route('admin.prices.index'), // url/route
                 'icon'          => 'fas fa-dollar-sign mr-1',
                 'active'        => ['admin/prices/*'],
@@ -299,7 +299,7 @@ class AppServiceProvider extends ServiceProvider
             // Manage Partners
             $event->menu->addAfter('prices', [
                 'key'           => 'partners',
-                'text'          => 'Sociedades y Convenios',
+                'text'          => 'Agreements',
                 'url'           => route('admin.partners.index'), // url/route
                 'icon'          => 'far fa-handshake mr-1',
                 'active'        => ['admin/partners/*'],

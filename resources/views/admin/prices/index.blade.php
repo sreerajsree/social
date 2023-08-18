@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('plugins.Sweetalert2', true)
 
 @section('content_header')
-    <a href="{{ route( 'admin.prices.create' ) }}" class="btn btn-primary float-right"><i class="fas fa-plus mr-1"></i>Nuevo precio</a>
-    <h1 class="text-dark">Precios</h1>
+    <a href="{{ route( 'admin.prices.create' ) }}" class="btn btn-primary float-right"><i class="fas fa-plus mr-1"></i>New Price</a>
+    <h1 class="text-dark">Prices</h1>
 @stop
 
 @section('content')
@@ -17,14 +17,14 @@
 
     <div class="card">
         <div class="card-header">
-            Listado de precios
+            Price List
         </div>
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
+                        <th>Name</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -34,13 +34,13 @@
                             <td width="10px">{{ $price->id }}</td>
                             <td>{{ $price->name }}</td>
                             <td width="12%">
-                                <a href="{{ route('admin.prices.edit', $price ) }}" class="btn btn-outline-secondary"><i class="far fa-edit mr-1"></i>Editar</a>
+                                <a href="{{ route('admin.prices.edit', $price ) }}" class="btn btn-outline-secondary"><i class="far fa-edit mr-1"></i>Edit</a>
                             </td>
                             <td width="14%">
                                 <form action="{{ route( 'admin.prices.destroy', $price ) }}" method="POST" class="delete-price">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-outline-danger" type="submit"><i class="far fa-trash-alt mr-1"></i>Eliminar</button>
+                                    <button class="btn btn-outline-danger" type="submit"><i class="far fa-trash-alt mr-1"></i>Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -49,7 +49,7 @@
             </table>
         </div>
         <div class="card-footer text-sm text-muted">
-            El <strong>precio</strong> o costo del curso. En caso de ser Gratuito, el valor debe ser igual a cero (0).
+            The <strong>price</strong> or cost of the course. If it is Free, the value must be equal to zero (0).
         </div>
     </div>
 @stop
@@ -61,8 +61,8 @@
     @if (session('delete') == 'success')
         <script>
             Swal.fire(
-                '¡Eliminado!',
-                'El precio ha sido eliminado.',
+                'Delete!',
+                'The price has been removed.',
                 'success'
                 );
         </script>
@@ -74,14 +74,14 @@
             e.preventDefault();
 
             Swal.fire({
-            title: '¿Seguro que quieres eliminar este precio?',
-            text: "La operación no podrá ser revertida y los cursos que hayan sido asignados a este precio serán mostrados 'Sin precio definido'!",
+            title: 'Are you sure you want to remove this price?',
+            text: "The operation cannot be reversed and the courses that have been assigned to this price will be shown 'Without defined price'!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: '¡Si, eliminar!',
-            cancelButtonText: 'Cancelar'
+            confirmButtonText: 'Yes, delete!',
+            cancelButtonText: 'Cancel'
             }).then((result) => {
             if (result.value) {
 

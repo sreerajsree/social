@@ -13,8 +13,8 @@
             <div class="w-full text-lg py-20">
                 <p class="font-bold pb-2">About</p>
                 <ul>
-                    <li class="py-1"><a class="hover:underline" href="">About Social Care TV</a></li>
-                    <li class="py-1"><a class="hover:underline" href="">Why choose us?</a></li>
+                    <li class="py-1"><a class="hover:underline" href="{{ route('pages.about', [app()->getLocale()]) }}" :active="request()->routeIs('about')">About Social Care TV</a></li>
+                    <li class="py-1"><a class="hover:underline" href="{{ route('pages.wcu',[app()->getLocale()]) }}" :active="request()->routeIs('why-choose-us')">Why choose us?</a></li>
                     <li class="py-1"><a class="hover:underline" href="">Care Certificate</a></li>
                     <li class="py-1"><a class="hover:underline" href="">Accreditation</a></li>
                 </ul>
@@ -25,7 +25,7 @@
                     <li class="py-1"><a class="hover:underline" href="">User guide</a></li>
                     <li class="py-1"><a class="hover:underline" href="">Glossary</a></li>
                     <li class="py-1"><a class="hover:underline" href="">FAQ's</a></li>
-                    <li class="py-1"><a class="hover:underline" href="">Contact us</a></li>
+                    <li class="py-1"><a class="hover:underline" href="{{ route('contact-us', [app()->getLocale()]) }}" :active="request()->routeIs('contact-us')">Contact us</a></li>
                 </ul>
             </div>
             <div class="w-full text-lg py-20">

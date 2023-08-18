@@ -50,7 +50,6 @@
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <div class="hidden sm:-my-px sm:ml-10 sm:flex items-center middle">
-
                     {{-- @foreach ($nav_links as $nav_link)
                         <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']" class="items-center px-1 pt-1 text-md font-medium leading-5 hover:text-gray-700 block py-2 text-gray-500">
 
@@ -60,12 +59,7 @@
                     @endforeach --}}
                     @livewire('search')
 
-                    {{-- <x-jet-nav-link href="{{ route('courses.index', [app()->getLocale()]) }}" :active="request()->routeIs('home')"
-                        class="hidden md:inline-block">
-                        {{ __('Courses') }}
-                    </x-jet-nav-link> --}}
-
-                    <x-jet-nav-link href="" :active="request()->routeIs('home')"
+                    <x-jet-nav-link href="{{ route('courses.index', [app()->getLocale()]) }}" :active="request()->routeIs('course.index')"
                         class="hidden md:inline-block">
                         {{ __('Courses') }}
                     </x-jet-nav-link> 
@@ -231,14 +225,14 @@
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                     <button
-                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
+                                        class="flex text-xl border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                         <img class="h-8 w-8 rounded-full object-cover"
                                             src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                     </button>
                                 @else
                                     <span class="inline-flex rounded-md">
                                         <button type="button"
-                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                            class="inline-flex items-center px-3 py-2 border border-transparent text-xl leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                             {{ Auth::user()->name }}
                                             {{-- TODO: Fix show user role {{ Auth::user()->roles()->name }} --}}
 
@@ -318,11 +312,11 @@
                         </x-jet-dropdown>
                     @else
                         <!-- Login button -->
-                        <a class="hover:opacity-75 btn-primary" href="">{{ __('Log in') }}</a>
+                        <a class="hover:opacity-75 btn-primary px-6 py-3" href="{{ route('login') }}">{{ __('Log in') }}</a>
 
                         <!-- Register button -->
                         @if (Route::has('register'))
-                            <a class="hover:opacity-75 btn-secondary" href="">{{ __('Open new account') }}</a>
+                            <a class="hover:opacity-75 btn-secondary px-6 py-3" href="{{ route('register') }}">{{ __('Open new account') }}</a>
                         @endif
                     @endauth
                 </div>

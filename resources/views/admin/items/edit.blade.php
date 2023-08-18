@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Empleateya LMS')
+@section('title', 'care.training')
 
 @section('content_header')
-    <a href="{{ route('admin.items.create') }}" class="btn btn-primary float-right"><i class="fas fa-plus mr-1"></i>Nuevo item</a>
-    <h1><i class="far fa-edit mr-1"></i>Editar item</h1>
+    <a href="{{ route('admin.items.create') }}" class="btn btn-primary float-right"><i class="fas fa-plus mr-1"></i>New Item</a>
+    <h1><i class="far fa-edit mr-1"></i>Edit Item</h1>
 @stop
 
 @section('content')

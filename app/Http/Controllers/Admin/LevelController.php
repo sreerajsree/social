@@ -44,7 +44,7 @@ class LevelController extends Controller
 
         $level = Level::create( $request->all() );
 
-        return redirect()->route('admin.levels.edit', $level )->with('info', 'El nivel ha sido creado exitosamente');
+        return redirect()->route('admin.levels.edit', $level )->with('info', 'The level has been created successfully');
     }
 
     /**
@@ -84,7 +84,7 @@ class LevelController extends Controller
 
         $level->update( $request->all() );
 
-        return redirect()->route('admin.levels.edit', $level )->with('info', 'El nivel se ha actualizado correctamente.');
+        return redirect()->route('admin.levels.edit', $level )->with('info', 'The level has been successfully updated.');
     }
 
     /**

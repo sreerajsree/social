@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-dark">Cursos en revisión</h1>
+    <h1 class="text-dark">Courses under review</h1>
 @stop
 
 @section('content')
-    <p class="text-secondary">Listado de todos los cursos que se encuentran pendientes de aprobación.</p>
+    <p class="text-secondary">List of all courses that are pending approval.</p>
 
     @if( session('success') )
 

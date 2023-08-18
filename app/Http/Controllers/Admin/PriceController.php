@@ -45,7 +45,7 @@ class PriceController extends Controller
 
         $price = Price::create( $request->all() );
 
-        return redirect()->route('admin.prices.edit', compact('price') )->with('info', 'El precio fue registrado correctamente.');
+        return redirect()->route('admin.prices.edit', compact('price') )->with('info', 'The price was registered correctly.');
     }
 
     /**
@@ -86,7 +86,7 @@ class PriceController extends Controller
 
         $price->update( $request->all() );
 
-        return redirect()->route('admin.prices.edit', compact('price') )->with('info', 'El precio se ha actualizado correctamente.');
+        return redirect()->route('admin.prices.edit', compact('price') )->with('info', 'The price has been updated successfully.');
     }
 
     /**

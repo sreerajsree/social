@@ -55,7 +55,7 @@ class CoursesCurriculum extends Component
         // SweetAlert
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
-            'title' => 'Módulo agregado con éxito',
+            'title' => 'Module successfully added',
             'text' => '',
         ]);
 
@@ -72,7 +72,7 @@ class CoursesCurriculum extends Component
     public function editConfirm(Section $section){
         $this->dispatchBrowserEvent('swal:edit', [
             'type' => 'warning',
-            'title' => 'Estas seguro de editar este título?',
+            'title' => 'Are you sure to edit this title?',
             'text' => '',
             'section' => $section,
         ]);
@@ -101,7 +101,7 @@ class CoursesCurriculum extends Component
     public function deleteConfirm($id){
         $this->dispatchBrowserEvent('swal:confirm', [
             'type' => 'warning',
-            'title' => 'Estas seguro de eliminar este módulo?',
+            'title' => 'Are you sure to remove this module?',
             'text' => '',
             'id' => $id,
         ]);

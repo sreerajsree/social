@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-primary"><i class="far fa-edit mr-1"></i>Editar tipo</h1>
+    <h1 class="text-primary"><i class="far fa-edit mr-1"></i>Edit Type</h1>
 @stop
 
 @section('content')
@@ -17,7 +17,7 @@
             {!! Form::model($type, ['route' => ['admin.types.update', $type ], 'method' => 'put' ]) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del tipo de curso']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the name of the course type']) !!}
                 </div>
 
                 @error('name')

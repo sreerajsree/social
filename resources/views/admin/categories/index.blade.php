@@ -5,7 +5,7 @@
 @section('plugins.Sweetalert2', true)
 
 @section('content_header')
-    <h1 class="text-dark">Categorías</h1>
+    <h1 class="text-dark">Categories</h1>
 @stop
 
 @section('content')
@@ -17,8 +17,8 @@
     <div class="card">       
 
         <div class="card-header">
-            <a href="{{ route('admin.categories.create' ) }}" class="btn btn-primary float-left" data-toggle="tooltip" data-placement="bottom" title="Añade una nueva categoría">
-            <i class="fas fa-plus mr-1"></i>Añadir categoría</a>
+            <a href="{{ route('admin.categories.create' ) }}" class="btn btn-primary float-left" data-toggle="tooltip" data-placement="bottom" title="Add a new category">
+            <i class="fas fa-plus mr-1"></i>Add Category</a>
         </div>
 
         <div class="card-body">
@@ -26,8 +26,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Icono</th>
-                        <th>Nombre</th>
+                        <th>Icon</th>
+                        <th>Name</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -41,13 +41,13 @@
                             <td>{{ $category->name }}</td>
                             <!-- button -->
                             <td width="12%">
-                                <a href="{{ route('admin.categories.edit', $category ) }}" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="left" title="Editar {{$category->name}}"><i class="far fa-edit mr-1"></i>Editar</a>
+                                <a href="{{ route('admin.categories.edit', $category ) }}" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="left" title="Edit {{$category->name}}"><i class="far fa-edit mr-1"></i>Edit</a>
                             </td>
                             <td width="14%">
                                 <form action="{{ route( 'admin.categories.destroy', $category ) }}" method="POST" class="delete-category">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-outline-danger" type="submit" data-toggle="tooltip" data-placement="left" title="Eliminar {{$category->name}}"><i class="far fa-trash-alt mr-1"></i>Eliminar</button>
+                                    <button class="btn btn-outline-danger" type="submit" data-toggle="tooltip" data-placement="left" title="Delete {{$category->name}}"><i class="far fa-trash-alt mr-1"></i>Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -56,7 +56,7 @@
             </table>
         </div>
         <div class="card-footer text-sm text-muted">
-            Las <strong>categorías</strong> nos permiten asociar un curso a una categoría específica, para una mejor organización.
+            The <strong>categories</strong> allow us to associate a course to a specific category, for a better organization.
         </div>
     </div>
 @stop
@@ -69,8 +69,8 @@
     @if (session('delete') == 'success')
         <script>
             Swal.fire(
-                '¡Eliminada!',
-                'Se eliminó la categoría solicitada.',
+                'Deleted!',
+                'The requested category was removed.',
                 'success'
                 );
         </script>
@@ -82,14 +82,14 @@
             e.preventDefault();
 
             Swal.fire({
-            title: '¿Seguro que quieres eliminar esta categoría?',
-            text: "La operación no podrá ser revertida y los cursos que hayan sido asignados a esta categoría serán mostrados 'Sin categoría'!",
+            title: 'Are you sure you want to delete this category?',
+            text: "The operation cannot be reversed and the courses that have been assigned to this category will be displayed 'Uncategorized'!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: '¡Si, eliminar!',
-            cancelButtonText: 'Cancelar'
+            confirmButtonText: 'Yes, delete!',
+            cancelButtonText: 'Cancel'
             }).then((result) => {
             if (result.value) {
 

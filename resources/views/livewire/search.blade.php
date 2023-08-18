@@ -1,6 +1,4 @@
-<form class="py-4 relative mx-auto text-gray-600" autocomplete="off">
-
-
+<form class="relative mx-auto text-gray-600" autocomplete="off">
     {{-- <input wire:model="search" class="w-full border-2 border-gray-300 bg-white h-14 px-5 pr-16 rounded-lg text-sm focus:outline-none"
     type="search" name="search" placeholder="{{ __('What do you want to learn?') }}"> --}}
 
@@ -27,7 +25,7 @@
         {{ __('Search') }}
     </button> --}}
 
-    {{-- @if ( $search )
+    @if ( $search )
         <ul class="absolute z-50 left-0 w-full bg-white mt-1 rounded-lg overflow-hidden shadow-lg border-gray-300">
             @forelse( $this->results as $result )
                 <li class="leading-10 px-5 text-md cursor-pointer hover:bg-gray-200">
@@ -41,5 +39,5 @@
                 </li>
             @endforelse
         </ul>
-    @endif --}}
+    @endif
 </form>

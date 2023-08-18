@@ -12,7 +12,7 @@
 
                     <!-- buttons -->
                     <div class="flex justify-end">
-                        {!! Form::submit('Crear curso', ['class' => 'btn btn-primary cursor-pointer']) !!}
+                        {!! Form::submit('Create Course', ['class' => 'btn btn-primary cursor-pointer']) !!}
                     </div>
 
                 {!! Form::close() !!}

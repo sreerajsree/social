@@ -20,8 +20,8 @@ class DeletedMessages extends Component
 
     public function mount()
     {
-        $this->pageTitle = 'Mensajes eliminados';
-        $this->componentName = 'Mensajes';
+        $this->pageTitle = 'Deleted Messages';
+        $this->componentName = 'Messages';
     }
 
     public function render()
@@ -80,8 +80,8 @@ class DeletedMessages extends Component
     {
         $this->dispatchBrowserEvent('swal:deletemessageconfirm', [
             'type' => 'warning',
-            'title' => 'Estas seguro que quieres eliminar este mensaje permanentemente?',
-            'text' => 'Ten en cuenta que el mensaje será eliminado del sistema, pero esto no afectará el buzón capacítate@mt.gob.do',
+            'title' => 'Are you sure you want to delete this message permanently?',
+            'text' => 'Keep in mind that the message will be deleted from the system, but this will not affect the mailbox test@care.training',
             'id' => $id,
         ]);
     }

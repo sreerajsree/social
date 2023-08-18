@@ -34,16 +34,17 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name',
-        'lastname',
         'document_id',
-        'document_type',
-        'gender',
+        'lastname',
         'email',
         'phone',
         'mobile',
+        'company',
+        'home',
         'options',
         'profile_visibility',
         'password',
+        'email_verified_at'
     ];
 
     /**
@@ -63,10 +64,10 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'options' => 'array'
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    //     'options' => 'array'
+    // ];
 
     /**
      * The accessors to append to the model's array form.
@@ -96,42 +97,42 @@ class User extends Authenticatable implements MustVerifyEmail
         parent::boot();
 
         static::creating(function($item){
-            Log::info("[Creating event] Creando usuario ". $item);
+            Log::info("[Creating event] creating user ". $item);
         });
 
         static::created(function($item){
-            Log::info("[Created event] Usuario creado " . $item);
+            Log::info("[Created event] user created " . $item);
         });
 
         static::updating(function($item){
-            Log::info("[Updating event] Actualizando usuario " . $item);
+            Log::info("[Updating event] updating user " . $item);
         });
 
         static::updated(function($item){
-           Log::info("[Updated event] Usuario actualizado " . $item);
+           Log::info("[Updated event] updated user " . $item);
         });
 
         static::deleting(function($item){
-            Log::info("[Deleting event] Eliminando usuario " . $item);
+            Log::info("[Deleting event] deleting user " . $item);
         });
 
         static::deleted(function($item){
-            Log::info("[Deleted event] Usuario eliminado " . $item);
+            Log::info("[Deleted event] User Deleted " . $item);
         });
 
         static::saving(function($item){
-            Log::info("[Saving event] Guardando datos de usuario " . $item);
+            Log::info("[Saving event] Saving user data " . $item);
         });
 
         static::saved(function($item){
-            Log::info("[Saved event] Datos de usuario guardados " . $item);
+            Log::info("[Saved event] Saved user data " . $item);
         });
     }
 
     public static function getUsers()
     {
         // TODO: Add phone and mobile
-        $record = User::select('document_id', 'name', 'lastname', 'gender', 'email', 'active', 'last_login')->orderBy('name', 'asc')->get()->toArray();
+        $record = User::select('name', 'lastname', 'gender', 'email', 'active', 'last_login')->orderBy('name', 'asc')->get()->toArray();
 
         return $record;
     }

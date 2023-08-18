@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Empleateya LMS')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Crear item</h1>
+    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Create Item</h1>
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                 @include('admin.items.partials.form')
 
 
-                {!! Form::submit('Crear item', ['class' => 'btn btn-primary float-right']) !!}
+                {!! Form::submit('Create item', ['class' => 'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
     </div>

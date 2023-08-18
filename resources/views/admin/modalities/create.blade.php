@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Capacítate RD')
+@section('title', 'care.training')
 
 @section('content_header')
-    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Crear modalidad</h1>
+    <h1 class="text-primary"><i class="fas fa-plus mr-1"></i>Create Modality</h1>
 @stop
 
 @section('content')
@@ -12,14 +12,14 @@
             {!! Form::open(['route' => 'admin.modalities.store']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la modalidad']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the modality name']) !!}
                 </div>
 
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
 
-                {!! Form::submit('Crear modalidad', ['class' => 'btn btn-primary float-right']) !!}
+                {!! Form::submit('create Modality', ['class' => 'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
     </div>

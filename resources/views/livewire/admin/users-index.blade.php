@@ -11,7 +11,7 @@
                     id="search"
                     x-ref="searchField"
                     x-on:input.debounce.400ms="isTyped = ($event.target.value != '')"
-                    placeholder='Buscar...'
+                    placeholder='Look for...'
                     autocomplete="off"
                     wire:keydown="clear"
                     wire:model.debounce.500ms="search"
@@ -27,11 +27,10 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Documento</th>
-                            <th>Nombre</th>
+                            <th>Name</th>
                             <th>Email</th>
                             <th class="text-center">Roles</th>
-                            <th class="text-center">Última Conexión</th>
+                            <th class="text-center">Last connection</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -40,7 +39,6 @@
                             @if(  $user->id != 1 )
                                 <tr>
                                     <td>{{ $user->id }}</td>
-                                    <td>{{ $user->document_id }}</td>
                                     <td>{{ $user->lastname }}, {{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td class="text-center">
@@ -49,9 +47,9 @@
                                             <br>
                                         @endforeach
                                     </td>
-                                    <td class="text-muted text-center">{{ ($user->last_login != null) ? $user->last_login : 'Sin registro' }}</td>
+                                    <td class="text-muted text-center">{{ ($user->last_login != null) ? $user->last_login : 'no registration' }}</td>
                                     <td>
-                                        <a class="btn btn-outline-secondary" href="{{ route('admin.users.edit', [app()->getLocale(), $user] ) }}">Editar</a>
+                                        <a class="btn btn-outline-secondary" href="{{ route('admin.users.edit', $user ) }}">Edit</a>
                                     </td>
                                 </tr>
                             @endif
@@ -66,7 +64,7 @@
 
         @else
             <div class="alert alert-light" role="alert">
-                <strong>Nada por aquí!</strong> No encuentro datos que coincidan con tu busqueda :(
+                <strong>Nothing here!</strong> I can't find data that matches your search :(
             </div>
         @endif
 

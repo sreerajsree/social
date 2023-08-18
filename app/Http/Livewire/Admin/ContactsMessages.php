@@ -23,8 +23,8 @@ class ContactsMessages extends Component
 
     public function mount()
     {
-        $this->pageTitle = 'Bandeja de entrada';
-        $this->componentName = 'Mensajes';
+        $this->pageTitle = 'Inbox';
+        $this->componentName = 'Messages';
     }
 
     // public function paginationView()
@@ -84,8 +84,8 @@ class ContactsMessages extends Component
     {
         $this->dispatchBrowserEvent('swal:deletemessageconfirm', [
             'type' => 'warning',
-            'title' => 'Seguro que quieres eliminar este mensaje?',
-            'text' => 'Ten en cuenta que el mensaje será eliminado del sistema, pero esto no afectará el buzón capacítate@mt.gob.do',
+            'title' => 'Are you sure you want to delete this message?',
+            'text' => 'Keep in mind that the message will be deleted from the system, but this will not affect the mailbox test@care.training',
             'id' => $id,
         ]);
     }

@@ -22,9 +22,9 @@
             <div class="w-full text-lg py-20">
                 <p class="font-bold pb-2">Need help?</p>
                 <ul>
-                    <li class="py-1"><a class="hover:underline" href="">User guide</a></li>
-                    <li class="py-1"><a class="hover:underline" href="">Glossary</a></li>
-                    <li class="py-1"><a class="hover:underline" href="">FAQ's</a></li>
+                    <li class="py-1"><a class="hover:underline" href="https://www.social-care.tv/downloads/user-guide.pdf">User guide</a></li>
+                    <li class="py-1"><a class="hover:underline" href="https://www.social-care.tv/downloads/mh8591---glossary-for-sctv-v2.pdf">Glossary</a></li>
+                    <li class="py-1"><a class="hover:underline" href="{{ route('pages.faq', [app()->getLocale()]) }}" :active="request()->routeIs('faq')">FAQ's</a></li>
                     <li class="py-1"><a class="hover:underline" href="{{ route('contact-us', [app()->getLocale()]) }}" :active="request()->routeIs('contact-us')">Contact us</a></li>
                 </ul>
             </div>

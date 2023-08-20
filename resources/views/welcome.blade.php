@@ -176,7 +176,7 @@
     </section>
 
     <div class="py-20 flex justify-center">
-        <button class="btn-primary px-6 py-3">Find out more</button>
+        <button class="btn-primary px-6 py-3 mr-2">Find out more</button>
         <button class="btn-secondary px-6 py-3">Take a sample course</button>
     </div>
 
@@ -190,7 +190,7 @@
                     of the products we offer. As a result, we have been awarded accreditation by Continuing Professional
                     Development (CPD) UK and are fully endorsed by Skills for Care. We take Cyber Security seriously and
                     are proud to be Cyber Essentials accredited.</p>
-                <button class="btn-primary">Find out more</button>
+                <button class="btn-primary px-6 py-3">Find out more</button>
             </div>
             <div class="w-full flex flex-col md:flex-row items-center justify-around">
                 <img src="https://www.social-care.tv/images/homepage/cpd-corporate-member-tall-homepage.png"
@@ -203,7 +203,7 @@
         </div>
     </section>
 
-    <section class="container">
+    <section class="container pb-20">
         <p class="text-center text-4xl my-10">News and views</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div style="height: 600px"
@@ -257,20 +257,8 @@
         </div>
     </section>
 
-    <section style="background: #03ABC9">
-        <p class="text-center text-4xl my-10 text-white pt-20">Sign up for offers</p>
-        <p class="text-lg text-center text-white">Join our mailing list and receive information on special offers and
-            free courses. </p>
-        <div class="container pb-8">
-            <div class="mt-6 mb-10 p-0 md:p-20 flex items-center justify-between">
-                <input class="w-full mr-3 rounded-md p-3 hover:shadow-md" type="text" placeholder="First name">
-                <input class="w-full mr-3 rounded-md p-3 hover:shadow-md" type="text" placeholder="Surname">
-                <input class="w-full mr-3 rounded-md p-3 hover:shadow-md" type="email" placeholder="Email address">
-                <button class="btn-primary rounded-sm">Sign up</button>
-            </div>
-        </div>
-    </section>
-
+    
+    @include('partials.contact')
 
 
     <div class="divide-y divide-gray-300">

@@ -69,12 +69,12 @@
                         {{ __('Pricing') }}
                     </x-jet-nav-link> 
 
-                    <x-jet-nav-link href="" :active="request()->routeIs('home')"
+                    <x-jet-nav-link href="{{ route('pages.faq', [app()->getLocale()]) }}" :active="request()->routeIs('pages.faq')"
                         class="hidden md:inline-block">
                         {{ __('FAQs') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="" :active="request()->routeIs('home')"
+                    <x-jet-nav-link href="{{ route('pages.about', [app()->getLocale()]) }}" :active="request()->routeIs('pages.about')"
                         class="hidden md:inline-block">
                         {{ __('About Us') }}
                     </x-jet-nav-link>
@@ -273,22 +273,16 @@
                                 <!-- TODO: Create permission LMS Crear contenido -->
                                 @can('create-post')
                                     <x-jet-dropdown-link href="{{ route('creator.courses.index', app()->getLocale()) }}">
-                                        {{ __('Courses') }}
+                                        {{ __('Create Course') }}
                                     </x-jet-dropdown-link>
                                 @endcan
 
-                                <!-- TODO: Create permission LMS Crear contenido -->
-                                {{-- @can('view-dashboard')
-                                    <x-jet-dropdown-link href="{{ route('creator.dashboard', app()->getLocale()) }}">
-                                        {{ __('Settings') }}
+
+                                {{-- @can('create-course')
+                                    <x-jet-dropdown-link href="{{ route('instructor.courses.index', app()->getLocale()) }}">
+                                        {{ __('Instructor') }}
                                     </x-jet-dropdown-link>
                                 @endcan --}}
-
-                                @can('create-course')
-                                    <x-jet-dropdown-link href="{{ route('instructor.courses.index', app()->getLocale()) }}">
-                                        {{ __('Courses') }}
-                                    </x-jet-dropdown-link>
-                                @endcan
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">

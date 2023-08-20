@@ -1,4 +1,4 @@
-<form class="relative mx-auto text-gray-600" autocomplete="off">
+<form class="relative mx-auto text-gray-600 m-0" autocomplete="off">
     {{-- <input wire:model="search" class="w-full border-2 border-gray-300 bg-white h-14 px-5 pr-16 rounded-lg text-sm focus:outline-none"
     type="search" name="search" placeholder="{{ __('What do you want to learn?') }}"> --}}
 

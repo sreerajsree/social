@@ -17,4 +17,8 @@ class PageController extends Controller
     public function whyChooseUs(){
         return view('pages.why-choose-us');
     }
+
+    public function faq(){
+        return view('pages.faq');
+    }
 }

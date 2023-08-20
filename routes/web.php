@@ -108,6 +108,7 @@ Route::group([
 
     Route::get('/about', [PageController::class, 'about'])->name('pages.about');
     Route::get('/why-choose-us', [PageController::class, 'whyChooseUs'])->name('pages.wcu');
+    Route::get('/faq', [PageController::class, 'faq'])->name('pages.faq');
 
     Route::get('/glosary', [PageController::class, 'glosary'])->name('pages.glosary');
 

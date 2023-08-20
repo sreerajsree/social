@@ -5,11 +5,11 @@
         <div class="trapezoid-bg trapezoid-bg--top trapezoid-bg--top-purple"></div>
         <main style="overflow: hidden;z-index:10;" class="relative">
             <div class="container text-white text-center">
-                <p class="text-5xl pt-20">About Social Care TV</p>
-                <p class="mt-10 pb-20 text-2xl">Find out more about the UK’s most widely used provider of online training
+                <p class="text-3xl md:text-5xl pt-20">About Social Care TV</p>
+                <p class="mt-10 pb-20 text-xl md:text-2xl">Find out more about the UK’s most widely used provider of online training
                     for the health and social care sector</p>
                 <div class="hero"
-                    style="background-image: url(https://www.social-care.tv/images/hero-images/team-meeting.jpg); height:500px">
+                    style="background-image: url(https://www.social-care.tv/images/hero-images/team-meeting.jpg);">
                 </div>
             </div>
         </main>
@@ -31,7 +31,7 @@
             <p class="my-5 text-xl">Today, we are proud to be the most widely used e-learning provider for training for
                 the health and social care sector in the UK.</p>
             <div>
-                <iframe style="width: 100%; height:500px" src="https://www.youtube.com/embed/k8JWU0uUA0s"
+                <iframe class="w-full h-500" src="https://www.youtube.com/embed/k8JWU0uUA0s"
                     title="Social Care TV Overview" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
@@ -50,7 +50,7 @@
                     <p class="text-4xl">Meet the Team</p>
                     <p class="my-10">At Social Care TV we are extremely proud of our knowledgeable team and the gold
                         standard customer service we provide. </p>
-                    <a class="hover:opacity-75 btn-primary"
+                    <a class="hover:opacity-75 btn-primary px-6 py-3"
                         href="">{{ __('Click here to find out more about who we are!') }}</a>
                 </div>
             </div>
@@ -65,9 +65,9 @@
                         can be safe in the knowledge that training with Social Care TV is quality assured, secure,
                         comprehensive and relevant for your business. At Social Care TV, we are proud to be an award
                         winning business.</p>
-                    <a class="hover:opacity-75 btn-primary" href="">{{ __('Find out more') }}</a>
+                    <a class="hover:opacity-75 btn-primary px-6 py-3" href="">{{ __('Find out more') }}</a>
                 </div>
-                <div class="hidden">
+                <div class="hidden md:block">
                     <img class="rounded-lg" src="https://www.social-care.tv/images/about-us/accreditations-02-2023.jpg"
                         alt="">
                 </div>
@@ -83,7 +83,7 @@
                     <p class="my-10">At Social Care TV, you are in great company. We work with hundreds of thousands of
                         health and social care customers across the UK. Read more about what some of them have to say
                         here.</p>
-                    <a class="hover:opacity-75 btn-primary" href="">{{ __('Read more') }}</a>
+                    <a class="hover:opacity-75 btn-primary px-6 py-3" href="">{{ __('Read more') }}</a>
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-20">
@@ -95,9 +95,9 @@
                     <p class="my-10">For over 20 years, Social Care TV has been providing e-learning to health and
                         social care workers. In fact, more social care providers make use of our training services than
                         any other option in the UK.</p>
-                    <a class="hover:opacity-75 btn-primary" href="">{{ __('Find out more here') }}</a>
+                    <a class="hover:opacity-75 btn-primary px-6 py-3" href="">{{ __('Find out more here') }}</a>
                 </div>
-                <div class="hidden">
+                <div class="hidden md:block">
                     <img class="rounded-lg" src="https://www.social-care.tv/images/courses.jpg" alt="">
                 </div>
             </div>
@@ -117,18 +117,7 @@
         </div>
     </div>
 
-    <section style="background: #03ABC9">
-        <p class="text-center text-4xl my-10 text-white pt-20">Sign up for offers</p>
-        <p class="text-lg text-center text-white">Join our mailing list and receive information on special offers and free courses.  </p>
-        <div class="container pb-8">
-            <div class="mt-6 mb-10 p-8 md:p-16 flex flex-col md:flex-row items-center justify-between">
-                <input class="w-full mr-3 mb-3 rounded-md p-3 hover:shadow-md" type="text" placeholder="First name">
-                <input class="w-full mr-3 mb-3 rounded-md p-3 hover:shadow-md" type="text" placeholder="Surname">
-                <input class="w-full mr-3 mb-3 rounded-md p-3 hover:shadow-md" type="email" placeholder="Email address">
-                <button class="btn-primary rounded-sm w-full">Sign up</button>
-            </div>
-        </div>
-    </section>
+@include('partials.contact')
 
 
 </x-app-layout>

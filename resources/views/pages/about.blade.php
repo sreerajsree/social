@@ -47,7 +47,7 @@
                     <img class="rounded-lg"
                         src="https://www.social-care.tv/images/about-us/mh14660-updated-staff-grid.jpg" alt="">
                 </div>
-                <div class="p-2 md:p-36 flex justify-center flex-col">
+                <div class="p-2 md:p-20 flex justify-center flex-col">
                     <p class="text-4xl">Meet the Team</p>
                     <p class="my-10">At Social Care TV we are extremely proud of our knowledgeable team and the gold
                         standard customer service we provide. </p>
@@ -60,7 +60,7 @@
                     <img class="rounded-lg" src="https://www.social-care.tv/images/about-us/accreditations-02-2023.jpg"
                         alt="">
                 </div>
-                <div class="p-2 md:p-36 flex justify-center flex-col ">
+                <div class="p-2 md:p-20 flex justify-center flex-col ">
                     <p class="text-4xl">Accreditations and Awards</p>
                     <p class="my-10">Accredited by CPD, endorsed by Skills for Care and Cyber Essentials certified, you
                         can be safe in the knowledge that training with Social Care TV is quality assured, secure,
@@ -81,7 +81,7 @@
                         src="https://www.social-care.tv/images/about-us/mh14361---updating-the-customer-logos-graphic.jpg"
                         alt="">
                 </div>
-                <div class="p-2 md:p-36 flex justify-center flex-col">
+                <div class="p-2 md:p-20 flex justify-center flex-col">
                     <p class="text-4xl">Our Happy Clients</p>
                     <p class="my-10">At Social Care TV, you are in great company. We work with hundreds of thousands of
                         health and social care customers across the UK. Read more about what some of them have to say
@@ -94,7 +94,7 @@
                 <div class="block md:hidden">
                     <img class="rounded-lg" src="https://www.social-care.tv/images/courses.jpg" alt="">
                 </div>
-                <div class="p-2 md:p-36 flex justify-center flex-col">
+                <div class="p-2 md:p-20 flex justify-center flex-col">
                     <p class="text-4xl">Why Choose Social Care TV?</p>
                     <p class="my-10">For over 20 years, Social Care TV has been providing e-learning to health and
                         social care workers. In fact, more social care providers make use of our training services than
@@ -111,7 +111,7 @@
                     <img class="rounded-lg"
                         src="https://www.social-care.tv/images/about-us/care-worker-with-patient.jpg" alt="">
                 </div>
-                <div class="p-2 md:p-36 flex justify-center flex-col">
+                <div class="p-2 md:p-20 flex justify-center flex-col">
                     <p class="text-4xl">Care Worker of the Month</p>
                     <p class="my-10">At Social Care TV – we care about Care Workers. Each and every month one
                         inspirational person receives our Care Worker of the Month award. Follow us on <a style="border-bottom: 2px solid #03ABC9">Facebook</a> or

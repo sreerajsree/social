@@ -44,8 +44,8 @@
                     <div class='p-4'>
                         <p class='text-gray-700 text-2xl leading-7 my-1'>{{ Str::limit($course->title, 55) }}</p>
                         <div class='flex justify-between my-10 text-lg items-center'>
-                            <div class="flex items-center"><i class="far fa-clock mr-1"></i>40 -
-                                {{ $course->duration_in_minutes }}m</div>
+                            <div class="flex items-center"><i
+                                    class="far fa-clock mr-1"></i>{{ $course->duration_in_minutes }}m</div>
                             <div class="flex items-center">From <span class="font-bold text-3xl ml-1">
                                     @if ($course->price->value > 0)
                                         £ {{ $course->price->value }}
@@ -57,16 +57,16 @@
                         </div>
                     </div>
                 </div>
-          </div>
+            </div>
     </a>
 
-    
-        <div class="grid grid-cols-2 gap-2">
-            <a class="block md:hidden" href="">
-            <img class="h-32 w-full" :key="{{ 'image-' . $course->id }}" src="{{ Storage::url($course->image->url) }}" alt="">
+    <div class="grid grid-cols-2 gap-2">
+        <a class="block md:hidden" href="">
+            <img class="h-32 w-full" :key="{{ 'image-' . $course->id }}" src="{{ Storage::url($course->image->url) }}"
+                alt="">
             <div class="text-gray-700 text-xl leading-7 p-3">
                 {{ Str::limit($course->title, 35) }}
-            </a>
-        </div>
-    
+        </a>
+    </div>
+
 </article>

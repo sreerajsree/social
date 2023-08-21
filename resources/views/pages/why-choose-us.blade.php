@@ -119,6 +119,9 @@
                         well as being Endorsed by Skills for Care. We take Cyber Security seriously and are proud to be
                         Cyber Essentials accredited.
                     </p>
+                    <a class="hover:opacity-75 btn-primary px-6 py-3"
+                        href="{{ route('pages.accreditation', [app()->getLocale()]) }}"
+                        :active="request() - > routeIs('accreditation')">{{ __('Find out more') }}</a>
                 </div>
             </div>
         </div>
@@ -145,7 +148,7 @@
                 </div>
                 <div class="mt-8 mb-10 text-4xl">Free courses</div>
                 <p class="text-xl mb-8">On a regular basis we offer our registered users a full, certificated course - completely free of charge!</p>
-                <a class="font-bold text-xl" style="border-bottom: 1px solid #000" href="">Sign up today</a>
+                <a class="font-bold text-xl" style="border-bottom: 1px solid #000" href="{{ route('register') }}">Sign up today</a>
             </div>
         </div>
         <p class="pb-20"></p>
@@ -167,20 +170,7 @@
             </div>
         </section>
     </div>
-    <section style="background: #03ABC9">
-        <p class="text-center text-4xl my-10 text-white pt-20">Sign up for offers</p>
-        <p class="text-lg text-center text-white">Join our mailing list and receive information on special offers and
-            free courses. </p>
-        <div class="container pb-8">
-            <div class="mt-6 mb-10 p-8 md:p-16 flex flex-col md:flex-row items-center justify-between">
-                <input class="w-full mr-3 mb-3 rounded-md p-3 hover:shadow-md" type="text" placeholder="First name">
-                <input class="w-full mr-3 mb-3 rounded-md p-3 hover:shadow-md" type="text" placeholder="Surname">
-                <input class="w-full mr-3 mb-3 rounded-md p-3 hover:shadow-md" type="email"
-                    placeholder="Email address">
-                <button class="btn-primary rounded-sm w-full px-6 py-3">Sign up</button>
-            </div>
-        </div>
-    </section>
+    @include('partials.contact')
 
 
 </x-app-layout>

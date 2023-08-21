@@ -54,18 +54,18 @@ class Course extends Model
             ->join('types', 'courses.type_id', '=', 'types.id')
             ->join('modalities', 'courses.modality_id', '=', 'modalities.id')
             ->select(
-                'courses.title AS Título',
-                'courses.summary AS Descripción',
+                'courses.title AS Title',
+                'courses.summary AS Description',
                 'courses.url AS Url',
-                'courses.duration_in_minutes AS Duración',
+                'courses.duration_in_minutes AS Duration',
                 'courses.status AS Status',
-                DB::raw("CONCAT(users.name, ' ', users.lastname) AS Usuario"),
+                DB::raw("CONCAT(users.name, ' ', users.lastname) AS User"),
                 // 'users.name AS Nombre',
                 // 'users.lastname AS Apellidos',
-                'levels.name AS Nivel',
-                'categories.name AS Categoría',
-                'types.name AS Tipo',
-                'modalities.name AS Modalidad'
+                'levels.name AS Level',
+                'categories.name AS Category',
+                'types.name AS Type',
+                'modalities.name AS Modality'
             )
             ->groupBy(
                 'courses.title',
@@ -98,18 +98,18 @@ class Course extends Model
             ->join('types', 'courses.type_id', '=', 'types.id')
             ->join('modalities', 'courses.modality_id', '=', 'modalities.id')
             ->select(
-                'courses.title AS Título',
-                'courses.summary AS Descripción',
+                'courses.title AS Title',
+                'courses.summary AS Description',
                 'courses.url AS Url',
-                'courses.duration_in_minutes AS Duración',
+                'courses.duration_in_minutes AS Duration',
                 'courses.status AS Status',
-                DB::raw("CONCAT(users.name, ' ', users.lastname) AS Usuario"),
+                DB::raw("CONCAT(users.name, ' ', users.lastname) AS User"),
                 // 'users.name AS Nombre',
                 // 'users.lastname AS Apellidos',
-                'levels.name AS Nivel',
-                'categories.name AS Categoría',
-                'types.name AS Tipo',
-                'modalities.name AS Modalidad'
+                'levels.name AS Level',
+                'categories.name AS Category',
+                'types.name AS Type',
+                'modalities.name AS Modality'
             )
             ->where('courses.status', 3)
             ->groupBy(

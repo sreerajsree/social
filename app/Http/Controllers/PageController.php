@@ -21,4 +21,8 @@ class PageController extends Controller
     public function faq(){
         return view('pages.faq');
     }
+
+    public function accreditation(){
+        return view('pages.accreditation');
+    }
 }

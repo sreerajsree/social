@@ -13,19 +13,19 @@
                         <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
                         <ul id="tabs" class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full px-1 pt-2 mt-10">
                             <li
-                                class="px-6 md:px-10 py-2 md:py-4 -mb-px font-semibold text-gray-800 border-2 border-blue-400 opacity-50 rounded-lg">
-                                <a id="default-tab" href="#first">About SCTV</a>
+                                class="px-6 md:px-10 py-2 md:py-4 -mb-px font-semibold text-gray-800 border-2 border-cyan-400  opacity-50 rounded-lg">
+                                <a id="default-tab" href="#first" class="block">About SCTV</a>
                             </li>
                             <li
-                                class="px-6 md:px-10 py-2 md:py-4 font-semibold text-gray-800 border-2 border-blue-400 opacity-50 rounded-lg">
+                                class="px-6 md:px-10 py-2 md:py-4 font-semibold text-gray-800 border-2 border-blue-main opacity-50 rounded-lg">
                                 <a href="#second">Using the website</a>
                             </li>
                             <li
-                                class="px-6 md:px-10 py-2 md:py-4 font-semibold text-gray-800 border-2 border-blue-400 opacity-50 rounded-lg">
+                                class="px-6 md:px-10 py-2 md:py-4 font-semibold text-gray-800 border-2 border-blue-main opacity-50 rounded-lg">
                                 <a href="#third">Taking courses</a>
                             </li>
                             <li
-                                class="px-6 md:px-10 py-2 md:py-4 font-semibold text-gray-800 border-2 border-blue-400 opacity-50 rounded-lg">
+                                class="px-6 md:px-10 py-2 md:py-4 font-semibold text-gray-800 border-2 border-blue-main opacity-50 rounded-lg">
                                 <a href="#fourth">Purchasing and credits</a>
                             </li>
                         </ul>
@@ -1010,7 +1010,7 @@
 
                                 for (let i = 0; i < tabContents.children.length; i++) {
 
-                                    tabTogglers[i].parentElement.classList.remove("bg-blue-400", "-mb-px",
+                                    tabTogglers[i].parentElement.classList.remove("bg-blue-main", "-mb-px",
                                         "opacity-100");
                                     tabContents.children[i].classList.remove("hidden");
                                     if ("#" + tabContents.children[i].id === tabName) {
@@ -1019,7 +1019,7 @@
                                     tabContents.children[i].classList.add("hidden");
 
                                 }
-                                e.target.parentElement.classList.add("border-2", "bg-blue-400", "-mb-px", "text-white",
+                                e.target.parentElement.classList.add("border-2", "bg-blue-main", "-mb-px", "text-white",
                                     "opacity-100");
                             });
                         });

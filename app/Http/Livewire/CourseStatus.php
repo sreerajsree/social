@@ -81,7 +81,7 @@ class CourseStatus extends Component
      * Obtain the current lesson index
      */
     public function getIndexProperty(){
-        // pluck() : crea una coleccion a partir de una ya existente, pero solo con el id o otro parametro
+        // pluck() : create a collection from an existing one, but only with the id or another parameter
        return $this->course->lessons->pluck('id')->search($this->current->id);
     }
 

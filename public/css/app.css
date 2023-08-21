@@ -32467,6 +32467,14 @@ body {
   background: #03ccba;
 }
 
+.border-blue-main {
+  border: 2px solid #03abc9;
+}
+
+.bg-blue-main {
+  background-color: #03abc9;
+}
+
 .chart-icon {
   width: 60px;
   height: 60px;
@@ -32516,6 +32524,26 @@ body {
   text-align: center;
   min-width: 5.125rem;
   white-space: nowrap;
+}
+
+.tick {
+  line-height: 1.375rem;
+}
+
+ul.tick li {
+  margin-bottom: 0.625rem;
+}
+
+ul.tick li:before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  border: 0;
+  border-radius: 0;
+  top: 0;
+  left: -30px;
+  font-weight: 700;
+  padding-right: 10px;
+  font-size: 18px;
 }
 
 .sticky-notes ul,
@@ -32674,7 +32702,7 @@ body {
 }
 
 .vh-80 {
-  height: 80vh;
+  height: 75vh;
 }
 
 .telephone {

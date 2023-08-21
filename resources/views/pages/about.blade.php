@@ -6,7 +6,8 @@
         <main style="overflow: hidden;z-index:10;" class="relative">
             <div class="container text-white text-center">
                 <p class="text-3xl md:text-5xl pt-20">About Social Care TV</p>
-                <p class="mt-10 pb-20 text-xl md:text-2xl">Find out more about the UK’s most widely used provider of online training
+                <p class="mt-10 pb-20 text-xl md:text-2xl">Find out more about the UK’s most widely used provider of
+                    online training
                     for the health and social care sector</p>
                 <div class="hero"
                     style="background-image: url(https://www.social-care.tv/images/hero-images/team-meeting.jpg);">
@@ -65,7 +66,9 @@
                         can be safe in the knowledge that training with Social Care TV is quality assured, secure,
                         comprehensive and relevant for your business. At Social Care TV, we are proud to be an award
                         winning business.</p>
-                    <a class="hover:opacity-75 btn-primary px-6 py-3" href="">{{ __('Find out more') }}</a>
+                    <a class="hover:opacity-75 btn-primary px-6 py-3"
+                        href="{{ route('pages.accreditation', [app()->getLocale()]) }}"
+                        :active="request() - > routeIs('accreditation')">{{ __('Find out more') }}</a>
                 </div>
                 <div class="hidden md:block">
                     <img class="rounded-lg" src="https://www.social-care.tv/images/about-us/accreditations-02-2023.jpg"
@@ -83,7 +86,8 @@
                     <p class="my-10">At Social Care TV, you are in great company. We work with hundreds of thousands of
                         health and social care customers across the UK. Read more about what some of them have to say
                         here.</p>
-                    <a class="hover:opacity-75 btn-primary px-6 py-3" href="">{{ __('Read more') }}</a>
+                    <a class="hover:opacity-75 btn-primary px-6 py-3"  href="{{ route('pages.wcu', [app()->getLocale()]) }}"
+                        :active="request() - > routeIs('wcu')">{{ __('Read more') }}</a>
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-20">
@@ -95,7 +99,8 @@
                     <p class="my-10">For over 20 years, Social Care TV has been providing e-learning to health and
                         social care workers. In fact, more social care providers make use of our training services than
                         any other option in the UK.</p>
-                    <a class="hover:opacity-75 btn-primary px-6 py-3" href="">{{ __('Find out more here') }}</a>
+                    <a class="hover:opacity-75 btn-primary px-6 py-3" href="{{ route('pages.wcu', [app()->getLocale()]) }}"
+                        :active="request() - > routeIs('wcu')">{{ __('Find out more here') }}</a>
                 </div>
                 <div class="hidden md:block">
                     <img class="rounded-lg" src="https://www.social-care.tv/images/courses.jpg" alt="">
@@ -109,15 +114,19 @@
                 <div class="p-2 md:p-36 flex justify-center flex-col">
                     <p class="text-4xl">Care Worker of the Month</p>
                     <p class="my-10">At Social Care TV – we care about Care Workers. Each and every month one
-                        inspirational person receives our Care Worker of the Month award. Follow us on <a href="" class="underline">Facebook</a> or
-                        <a href="" class="underline">LinkedIn</a> to find out more.</p>
-                    <p><a class="underline" href="https://www.facebook.com/hashtag/cwotm">#CWOTM</a> – Thanking Care Workers Across the UK</p>
+                        inspirational person receives our Care Worker of the Month award. Follow us on <a style="border-bottom: 2px solid #03ABC9">Facebook</a> or
+                        <a href="" style="border-bottom: 2px solid #03ABC9">LinkedIn</a> to find out more.
+                    </p>
+                    <p><a style="border-bottom: 2px solid #03ABC9" href="https://www.facebook.com/hashtag/cwotm">#CWOTM</a> – Thanking Care
+                        Workers Across the UK</p>
                 </div>
             </div>
         </div>
     </div>
 
-@include('partials.contact')
+    <div class="mt-10">
+        @include('partials.contact')
+    </div>
 
 
 </x-app-layout>

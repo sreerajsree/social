@@ -23,7 +23,7 @@
     <!-- Page Copyright -->
     <x-slot name="copyright">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-x-6 gap-y-8 ">
-            &copy;Ministerio de Trabajo 2021
+            &copy;care.training 2023
         </div>
     </x-slot>
 </x-app-layout>

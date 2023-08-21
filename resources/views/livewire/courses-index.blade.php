@@ -1,25 +1,27 @@
 <div>
     <div class="container grid grid-cols-1 md:grid-cols-4 gap-10" style="margin-top: -170px">
         @foreach ($featuredcourses as $fc)
-            <a href="{{ route('courses.show', [app()->getLocale(), $fc] ) }}">
+            <a href="{{ route('courses.show', [app()->getLocale(), $fc]) }}">
                 <div
                     class='w-full max-w-md  mx-auto bg-white shadow-xl overflow-hidden cursor-pointer border-purple-700 bd hover:shadow-2xl'>
                     <div class='max-w-md mx-auto'>
                         <div class='h-52'
-                            style='background-image:url({{ Storage::url( $fc->image->url ) }});background-size:cover;background-position:center'>
+                            style='background-image:url({{ Storage::url($fc->image->url) }});background-size:cover;background-position:center'>
                         </div>
                         <div class='p-4'>
-                            <p class='text-gray-700 text-2xl leading-7 my-1'>{{ $fc->title }}</p>
+                            <p class='text-gray-700 text-2xl leading-7 my-1'>{{ Str::limit($fc->title, 40) }}</p>
                             <div class='flex justify-between my-10 text-lg items-center'>
-                                <div class="flex items-center"><i class="far fa-clock mr-1"></i>{{ $fc->duration_in_minutes }}</div>
-                                <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span>
+                                <div class="flex items-center"><i
+                                        class="far fa-clock mr-1"></i>{{ $fc->duration_in_minutes }}</div>
+                                <div class="flex items-center">From <span class="font-bold text-3xl ml-1">£
+                                    {{ $fc->price->value }}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
-            @endforeach
+        @endforeach
     </div>
     <!-- Filters -->
     <div class="bg-gray-200 py-4 mt-20 mb-16 z-0">
@@ -146,7 +148,8 @@
                     <p class="my-10 text-xl">You can see the quality of our e-learning courses by trying one for
                         yourself. Watch the video, answer the multiple choice questions and receive your certificate.
                         The sample course will take around 70 minutes to complete.</p>
-                    <a class="hover:opacity-75 btn-primary text-xl px-6 py-3" href="">{{ __('Start the course') }}</a>
+                    <a class="hover:opacity-75 btn-primary text-xl px-6 py-3"
+                        href="{{ route('register') }}">{{ __('Start the course') }}</a>
                 </div>
                 <div class="hidden md:block">
                     <img src="https://www.social-care.tv/images/ipad.png" alt="" class="absolute bottom-0">

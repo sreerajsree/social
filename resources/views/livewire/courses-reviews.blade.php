@@ -72,6 +72,6 @@
         </div>
     </div>
     @else
-        <p class="text-gray-500 text-md">{{ __('This course has not been rated yet') }}</p>
+        <p class="text-gray-500 text-xl">{{ __('This course has not been rated yet') }}</p>
     @endif
 </section>

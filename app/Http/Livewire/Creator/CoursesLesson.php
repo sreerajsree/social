@@ -65,7 +65,7 @@ class CoursesLesson extends Component
         // SweetAlert
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
-            'title' => 'Unidad añadida con éxito',
+            'title' => 'Unit added successfully',
             'text' => '',
         ]);
 
@@ -131,7 +131,7 @@ class CoursesLesson extends Component
         // SweetAlert
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
-            'title' => 'Unidad actualizada!',
+            'title' => 'Updated unit!',
             'text' => '',
         ]);
 
@@ -150,7 +150,7 @@ class CoursesLesson extends Component
     public function deleteConfirm($id){
         $this->dispatchBrowserEvent('swal:confirm', [
             'type' => 'warning',
-            'title' => 'Seguro que quires eliminar esta unidad?',
+            'title' => 'Are you sure you want to delete this unit?',
             'text' => '',
             'id' => $id,
         ]);

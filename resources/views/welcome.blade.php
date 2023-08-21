@@ -97,6 +97,70 @@
             border-bottom-width: 4px;
         }
     </style>
+    <div class="divide-y divide-gray-300">
+
+        @if (Auth::check())
+            @if (count($user_courses))
+                <!-- Student courses in this category -->
+                <div class="container sm:px-6 lg:px-8 py-12">
+                    <h2
+                        class="text-center font-display font-semibold text-gray-600 text-xl sm:text-2xl md:text-3xl mb-6">
+                        <span class="font-bold">{{ auth()->user()->name }}</span>,
+                        {{ __('these are your latest courses') }}
+                    </h2>
+                    <!-- courses -->
+                    <div
+                        class="px-4 sm:px-6 lg:px-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 mt-12">
+                        @foreach ($user_courses as $course)
+                            <x-user-course :course="$course" />
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+        @endif
+
+        <!-- latest posts -->
+        {{-- @if (count($latest_courses) >= 1)
+            <section class="py-12">
+                <h2 class="text-center font-display font-semibold text-gray-600 text-xl sm:text-2xl md:text-3xl mb-6">{{ __('Latest courses') }}</h2>
+                    <p class="text-center text-gray-500 text-sm mb-6">{{ __('These are the last courses that we have published for you') }}</p>
+                    <!-- courses -->
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
+                        @foreach ($latest_courses as $course)
+                            <x-course-card :course="$course" />
+                        @endforeach
+                    </div>
+            </section>
+        @endif --}}
+
+        <!-- partnerships -->
+        @if (count($partners) >= 1)
+            <section class="pt-12">
+                <h2 class="text-center font-display font-semibold text-gray-600 text-2xl sm:text-3xl md:text-4xl mb-6">
+                    {{ __('Agreements with recognized institutions and companies') }}</h2>
+                <p class="text-center text-gray-500 text-md mb-6">
+                    {{ __('In order to offer you optimal training, and that you can join the labor market') }}</p>
+                <!-- courses -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-x-6 gap-y-8 ">
+                    @foreach ($partners as $partner)
+                        <figure>
+                            @isset($partner->image)
+                                <img id="picture" class="img-fluid px-10"
+                                    src="{{ Storage::url($partner->image->url) }}" title="{{ $partner->name }}"
+                                    alt="{{ $partner->name }}" style="max-height: 100px;">
+                            @else
+                                <img id="picture" class="img-fluid px-10"
+                                    src="{{ asset('images/courses/logo-cloud.png') }}" title="{{ $partner->name }}"
+                                    alt="{{ $partner->name }}" style="max-height: 100px;">
+                            @endisset
+                        </figure>
+                        {{-- <x-course-card :course="$course" /> --}}
+                    @endforeach
+                </div>
+                <hr class="mt-24">
+            </section>
+        @endif
+    </div>
     <div class="container py-10">
         <p class="text-center text-4xl my-10">Learn from 71 online video courses</p>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
@@ -109,10 +173,10 @@
                             style='background-image:url({{ Storage::url( $lc->image->url ) }});background-size:cover;background-position:center'>
                         </div>
                         <div class='p-4'>
-                            <p class='text-gray-700 text-2xl leading-7 my-1'>{{ $lc->title }}</p>
+                            <p class='text-gray-700 text-2xl leading-7 my-1'>{{ Str::limit($lc->title, 40) }}</p>
                             <div class='flex justify-between my-10 text-lg items-center'>
                                 <div class="flex items-center"><i class="far fa-clock mr-1"></i>{{ $lc->duration_in_minutes }}</div>
-                                <div class="flex items-center">From <span class="font-bold text-3xl ml-1">€1.49</span>
+                                <div class="flex items-center">From <span class="font-bold text-3xl ml-1">£ {{ $lc->price->value }}</span>
                                 </div>
                             </div>
                         </div>
@@ -176,8 +240,8 @@
     </section>
 
     <div class="py-20 flex justify-center">
-        <button class="btn-primary px-6 py-3 mr-2">Find out more</button>
-        <button class="btn-secondary px-6 py-3">Take a sample course</button>
+        <a href="{{ route('pages.wcu',[app()->getLocale()]) }}" :active="request()->routeIs('why-choose-us')" class="btn-primary px-6 py-3 mr-2">Find out more</a>
+        <a href="{{ route('register') }}" class="btn-secondary px-6 py-3">Take a sample course</a>
     </div>
 
 
@@ -190,7 +254,7 @@
                     of the products we offer. As a result, we have been awarded accreditation by Continuing Professional
                     Development (CPD) UK and are fully endorsed by Skills for Care. We take Cyber Security seriously and
                     are proud to be Cyber Essentials accredited.</p>
-                <button class="btn-primary px-6 py-3">Find out more</button>
+                <a href="{{ route('pages.accreditation',[app()->getLocale()]) }}" :active="request()->routeIs('accreditation')" class="btn-primary px-6 py-3">Find out more</a>
             </div>
             <div class="w-full flex flex-col md:flex-row items-center justify-around">
                 <img src="https://www.social-care.tv/images/homepage/cpd-corporate-member-tall-homepage.png"
@@ -261,69 +325,6 @@
     @include('partials.contact')
 
 
-    <div class="divide-y divide-gray-300">
-
-        @if (Auth::check())
-            @if (count($user_courses))
-                <!-- Student courses in this category -->
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
-                    <h2
-                        class="text-center font-display font-semibold text-gray-600 text-xl sm:text-2xl md:text-3xl mb-6">
-                        <span class="font-bold">{{ auth()->user()->name }}</span>,
-                        {{ __('these are your latest courses') }}
-                    </h2>
-                    <!-- courses -->
-                    <div
-                        class="px-4 sm:px-6 lg:px-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 mt-12">
-                        @foreach ($user_courses as $course)
-                            <x-user-course :course="$course" />
-                        @endforeach
-                    </div>
-                </div>
-            @endif
-        @endif
-
-        <!-- latest posts -->
-        {{-- @if (count($latest_courses) >= 1)
-            <section class="py-12">
-                <h2 class="text-center font-display font-semibold text-gray-600 text-xl sm:text-2xl md:text-3xl mb-6">{{ __('Latest courses') }}</h2>
-                    <p class="text-center text-gray-500 text-sm mb-6">{{ __('These are the last courses that we have published for you') }}</p>
-                    <!-- courses -->
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
-                        @foreach ($latest_courses as $course)
-                            <x-course-card :course="$course" />
-                        @endforeach
-                    </div>
-            </section>
-        @endif --}}
-
-        <!-- partnerships -->
-        @if (count($partners) >= 1)
-            <section class="pt-12">
-                <h2 class="text-center font-display font-semibold text-gray-600 text-2xl sm:text-3xl md:text-4xl mb-6">
-                    {{ __('Agreements with recognized institutions and companies') }}</h2>
-                <p class="text-center text-gray-500 text-md mb-6">
-                    {{ __('In order to offer you optimal training, and that you can join the labor market') }}</p>
-                <!-- courses -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-x-6 gap-y-8 ">
-                    @foreach ($partners as $partner)
-                        <figure>
-                            @isset($partner->image)
-                                <img id="picture" class="img-fluid px-10"
-                                    src="{{ Storage::url($partner->image->url) }}" title="{{ $partner->name }}"
-                                    alt="{{ $partner->name }}" style="max-height: 100px;">
-                            @else
-                                <img id="picture" class="img-fluid px-10"
-                                    src="{{ asset('images/courses/logo-cloud.png') }}" title="{{ $partner->name }}"
-                                    alt="{{ $partner->name }}" style="max-height: 100px;">
-                            @endisset
-                        </figure>
-                        {{-- <x-course-card :course="$course" /> --}}
-                    @endforeach
-                </div>
-                <hr class="mt-24">
-            </section>
-        @endif
-    </div>
+    
 
 </x-app-layout>

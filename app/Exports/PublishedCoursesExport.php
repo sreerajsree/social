@@ -31,21 +31,21 @@ class PublishedCoursesExport implements FromCollection, WithStrictNullComparison
     {
         return [
             // 'ID',
-            'Título',
-            // 'Subtitulo',
-            'Descripción',
+            'Title',
+            // 'Caption',
+            'Description',
             'Url',
-            'Duración en minutos',
+            'Duration in minutes',
             'Status',
             // 'Slug',
-            'Usuario',
-            'Nivel',
-            'Categoría',
+            'User',
+            'Level',
+            'Category',
             //'Precio',
-            'Tipo',
-            'Modalidad',
-            //'Fecha de creación',
-            //'Fecha de modificación'
+            'Type',
+            'Modality',
+            //'Creation date',
+            //'Modification date'
         ];
     }
 }

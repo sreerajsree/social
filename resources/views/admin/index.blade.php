@@ -183,7 +183,7 @@
                     <h3 class="card-title">Latest Users</h3>
 
                     <div class="card-tools">
-                      <span class="badge badge-danger">{{ (count($latest_users) > 1) ? count($latest_users) . 'new users' : count($latest_users) . 'new users' }}</span>
+                      <span class="badge badge-danger">{{ (count($latest_users) > 1) ? count($latest_users) . ' new users' : count($latest_users) . ' new users' }}</span>
                       <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
                       </button>
@@ -197,7 +197,7 @@
                     <ul class="users-list clearfix">
                         @foreach( $latest_users as $latest_user)
                             <li>
-                                <img src="{{ $latest_user->profile_photo_url }}" alt="User Image">
+                                <img class="mx-auto" src="{{ $latest_user->profile_photo_url }}" alt="User Image">
                                 <a class="users-list-name" href="#">{{ $latest_user->name }} {{ $latest_user->lastname }}</a>
                                 <span class="users-list-date">{{ $latest_user->created_at }}</span>
                             </li>
@@ -459,7 +459,7 @@
 
   <!-- Main Footer -->
   <footer class="footer" style="padding: 20px;">
-    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2023 <a href="https://care.training">care.training</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.1.0

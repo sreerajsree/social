@@ -39,7 +39,7 @@
 <!-- course-subtitle -->
 <div class="mb-4">
     {!! Form::label( 'subtitle', Lang::get('Course subtitle' )) !!}
-    {!! Form::text('subtitle', null, ['class' => 'form-input block w-full mt-1' . ($errors->has('subtitle') ? ' border-red-600' : '') ]) !!}
+    {!! Form::textarea('subtitle', null, ['class' => 'form-input block w-full mt-1' . ($errors->has('subtitle') ? ' border-red-600' : '') ]) !!}
 
     @error('subtitle')
         <span class="invalid-feedback">

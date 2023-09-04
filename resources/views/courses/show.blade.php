@@ -33,20 +33,19 @@
                     <section class="mb-12">
                         <h2 class="text-4xl text-gray-600">{{ __('Who is this course for?') }}</h2>
 
-                        <ul class="list-disc list-inside mt-4">
+                        <div class=" mt-4">
 
                             @forelse ($course->requirements as $requirement)
-                            <li class="text-gray-600 text-xl flex justify-start">
-                                <i class="fas fa-circle text-sm text-gray-500 mr-3 pt-1 clear-left"></i>
+                            <p class="text-gray-600 text-xl flex justify-start">
                                 {{ $requirement->name }}
-                            </li>
+                            </p>
                             @empty
                                 <p class="text-gray-600 text-xl">
                                     No prerequisites
                                 </p>
                             @endforelse
 
-                        </ul>
+                            </div>
                     </section>
 
                     <!-- section goals -->
@@ -62,7 +61,7 @@
                                 </li>
                             @endforeach --}}
 
-                            @foreach ($course->sections as $section)
+                            @foreach ($course->goals as $section)
                                 <li class="text-gray-600 text-xl flex justify-start">
                                     <i class="fas fa-circle text-sm text-gray-500 mr-3 pt-1 clear-left"></i>
                                     {{ $section->name }}
@@ -214,7 +213,7 @@
                         <div class="my-5 text-xl text-center">
                             <p class="telephone"><i class="far fa-clock mr-2 text-3xl"></i>Duration:
                                 {{ $course->duration_in_minutes }}m</a>&nbsp;
-                            <p class="contact_email"><i class="fas fa-th mr-2 text-3xl"></i>Modules: </p>
+                            <p class="contact_email"><i class="fas fa-th mr-2 text-3xl"></i>Modules: 25</p>
                         </div>
                         <hr>
                         <ul class="tick text-xl mt-10 hidden md:block">

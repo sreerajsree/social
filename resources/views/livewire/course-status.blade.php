@@ -59,7 +59,7 @@
                     <div class="flex items-center cursor-pointer bg-gray-200 text-gray-500 hover:bg-gray-300 hover:text-gray-600 py-2 px-4 rounded shadow "
                         wire:click="download">
                         <i class="fas fa-download text-lg"></i>
-                        <p class="ml-2">{{ __('Download resource') }}</p>
+                        <p class="ml-2">{{ __('Download Certificate') }}</p>
                     </div>
                 @endif
             </div>

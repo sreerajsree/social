@@ -7,6 +7,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ResultController;
 
@@ -60,6 +61,8 @@ Route::group([
         return view('dashboard');
     })->name('dashboard');
 
+
+    Route::post('add/quiz', [QuizController::class, 'add'])->name('quiz.add');
     /**
      * Route to display the courses home page
      */

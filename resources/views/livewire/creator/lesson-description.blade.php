@@ -4,7 +4,7 @@
             class="card-body {{ $lesson->description != '' ? 'bg-green-100 hover:bg-green-200 border-green-100' : 'bg-white-100 hover:bg-gray-100 border-gray-100' }} border ">
             <header>
                 <h2 x-on:click="open = !open" class="font-bold cursor-pointer"><i
-                        class="far fa-file-alt mr-2"></i>Description</h2>
+                        class="far fa-file-alt mr-2"></i>Question for Quiz</h2>
             </header>
 
             <div x-show="open">
@@ -30,7 +30,7 @@
                     </form>
                 @else
                     <div>
-                        <textarea wire:model="name" placeholder="Add a description for this lesson"
+                        <textarea wire:model="name" placeholder="Add a Question for Quiz"
                             class="form-input w-full {{ $errors->has('name') ? ' border-red-600' : '' }}"></textarea>
                         @error('name')
                             <span class="invalid-feedback">

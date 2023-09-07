@@ -56,8 +56,8 @@
                 <!-- course title -->
                 <h1 class="font-bold text-4xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
                     Please watch the whole video.</h1>
-                <h2 class="font-thin text-3xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
-                    Questions will appear here after the video has finished.</h2>
+                {{-- <h2 class="font-thin text-3xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
+                    Questions will appear here after the video has finished.</h2> --}}
 
 
                 {{-- <div class="flex items-center mb-4">

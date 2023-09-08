@@ -54,11 +54,13 @@
         <div class="card">
             <div class="card-body">
                 <!-- course title -->
-                <h1 class="font-bold text-4xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
-                    Please watch the whole video.</h1>
-                {{-- <h2 class="font-thin text-3xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
-                    Questions will appear here after the video has finished.</h2> --}}
-
+                <div id="one{{ $current->id }}">
+                    <h1 class="font-bold text-4xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
+                        Please watch the whole video.</h1>
+                    <h2 class="font-thin text-3xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
+                        Questions will appear here after the video has finished.</h2>
+    
+                </div>
 
                 {{-- <div class="flex items-center mb-4">
                     <figure>
@@ -85,38 +87,54 @@
                 </div> --}}
                 <!-- /progress bar -->
 
-                <h1 class="font-bold text-3xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
-                    {{ $current->name }}</h1>
-                <div class="font-thin text-3xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
-                    {{ $current->description->name }}
+                <div id="two{{ $current->id }}" style="display: none">
+                    <h1 class="font-bold text-3xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
+                        {{ $current->name }}</h1>
+                    <div class="font-thin text-3xl lg:text-2xl leading-8 text-gray-600 mt-8 md:mt-4 mb-4">
+                        {{ $current->description->name }}
+                    </div>
+                    <form action="{{ route('quiz.add', [app()->getLocale()]) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="c_id" value="{{ $current->id }}" id="">
+                        <ul class="text-xl text-gray-600 mb-10">
+                            <li class="mb-2">
+                                <input name="ans" value="{{ $current->description->qone }}" type="radio">
+                                {{ $current->description->qone }}
+                            </li>
+                            <li class="mb-2">
+                                <input name="ans" value="{{ $current->description->qtwo }}" type="radio">
+                                {{ $current->description->qtwo }}
+                            </li>
+                            <li class="mb-2">
+                                <input name="ans" value="{{ $current->description->qthree }}" type="radio">
+                                {{ $current->description->qthree }}
+                            </li>
+                            <li class="mb-2">
+                                <input name="ans" value="{{ $current->description->qfour }}" type="radio">
+                                {{ $current->description->qfour }}
+                            </li>
+                        </ul>
+                        @if ($this->next)
+                            <a wire:click="changeLesson({{ $this->next }})" class="submit-btn">Continue<i
+                                    class="fas fa-arrow-right ml-2"></i></a>
+                        @endif
+                    </form>
                 </div>
-                <form action="{{ route('quiz.add', [app()->getLocale()]) }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="c_id" value="{{ $current->id }}" id="">
-                    <ul class="text-xl text-gray-600 mb-10">
-                        <li class="mb-2">
-                            <input name="ans" value="{{ $current->description->qone }}" type="radio">
-                            {{ $current->description->qone }}
-                        </li>
-                        <li class="mb-2">
-                            <input name="ans" value="{{ $current->description->qtwo }}" type="radio">
-                            {{ $current->description->qtwo }}
-                        </li>
-                        <li class="mb-2">
-                            <input name="ans" value="{{ $current->description->qthree }}" type="radio">
-                            {{ $current->description->qthree }}
-                        </li>
-                        <li class="mb-2">
-                            <input name="ans" value="{{ $current->description->qfour }}" type="radio">
-                            {{ $current->description->qfour }}
-                        </li>
-                    </ul>
-                    @if ($this->next)
-                        <a wire:click="changeLesson({{ $this->next }})" class="submit-btn">Continue<i
-                                class="fas fa-arrow-right ml-2"></i></a>
-                    @endif
-                </form>
-
+                <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+                <script src="https://player.vimeo.com/api/player.js" sync></script>
+                <script>
+                    const iframe = document.querySelector('iframe');
+                    const player = new Vimeo.Player(iframe);
+                
+                    player.on('ended', function() {
+                        $("#two{{ $current->id }}").show();
+                        $("#one{{ $current->id }}").hide();
+                    });
+                
+                    player.getVideoTitle().then(function(title) {
+                        console.log('title:', title);
+                    });
+                </script>
                 
                 {{-- <ul>
                     @foreach ($course->sections as $section)
@@ -157,3 +175,4 @@
         <!-- /sidebar -->
     </div>
 </div>
+
